@@ -1,0 +1,16 @@
+{
+  "name": "Kapil Kumawat",
+  "short_name": "KK",
+  "description": "Sr. Director of Engineering — Kapil Kumawat",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#f8f4ed",
+  "theme_color": "#1c0f08",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
