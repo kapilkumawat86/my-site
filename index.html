@@ -1236,6 +1236,87 @@ ul { margin: 0; padding: 0; list-style: none; }
   [data-design="B"] .cv-role-meta { grid-column:1; }
   [data-design="B"] .cv-role-bullets { grid-column:1; }
   .cv-tweaks { left:12px; right:12px; width:auto; }
+
+  /* Theme B section-head: remove fixed 120px offset column */
+  [data-design="B"] .cv-section-head { grid-template-columns:1fr; gap:8px; }
+  [data-design="B"] .cv-section-head .cv-section-num { display:none; }
+
+  /* Theme C section-head: drop badge on tablet, keep num + title */
+  [data-design="C"] .cv-section-head { grid-template-columns:auto 1fr; gap:14px; }
+  [data-design="C"] .cv-section-badge { display:none; }
+}
+
+/* ---- Tablets & phones: hide nav links, keep logo + actions ---- */
+@media (max-width: 768px) {
+  .cv-nav-links { display:none; }
+  /* Fix Theme B nav: its inner is a 3-col grid — collapse to 2-col */
+  [data-design="B"] .cv-nav-inner { grid-template-columns:auto auto; }
+}
+
+/* ---- Phones (≤640px) ---- */
+@media (max-width: 640px) {
+  /* Hero name: reduce minimum so it doesn't overflow narrow screens */
+  [data-design="A"] .cv-name { font-size:clamp(44px,13vw,80px); }
+  [data-design="B"] .cv-name { font-size:clamp(38px,12vw,64px); }
+  [data-design="C"] .cv-name { font-size:clamp(42px,13vw,80px); }
+
+  /* Hero meta: allow pill + coord to stack when they don't fit */
+  .cv-hero-meta { flex-wrap:wrap; gap:8px; }
+
+  /* Portrait: smaller on phone */
+  [data-design="A"] .cv-portrait,
+  [data-design="B"] .cv-portrait,
+  [data-design="C"] .cv-portrait { max-width:200px; }
+
+  /* Theme B about: collapse to single column */
+  [data-design="B"] .cv-about { grid-template-columns:1fr; gap:20px; }
+  [data-design="B"] .cv-about-lede { grid-column:1; }
+  [data-design="B"] .cv-about-body { grid-column:1; }
+
+  /* Theme B skills: collapse to single column on phone */
+  [data-design="B"] .cv-skills { grid-template-columns:1fr; }
+  [data-design="B"] .cv-skill-group:nth-child(1) { grid-column:1; }
+
+  /* Theme B job-head: drop index number column on phone */
+  [data-design="B"] .cv-job-head { grid-template-columns:1fr auto 36px; }
+  [data-design="B"] .cv-job-index { display:none; }
+
+  /* Theme C section-head: collapse to single column, hide decorative num */
+  [data-design="C"] .cv-section-head { grid-template-columns:1fr; gap:4px; }
+  [data-design="C"] .cv-section-num { display:none; }
+
+  /* Nav actions: hide print button to save space, keep CTA */
+  .cv-nav-actions .cv-btn-ghost { display:none; }
+
+  /* Tweaks panel: full width already via 900px rule, but ensure no overflow */
+  .cv-tweaks { bottom:0; border-radius:0; }
+}
+
+/* ---- Small phones (≤480px) ---- */
+@media (max-width: 480px) {
+  /* Principles: single column */
+  [data-design="A"] .cv-principles,
+  [data-design="B"] .cv-principles,
+  [data-design="C"] .cv-principles { grid-template-columns:1fr !important; gap:16px !important; }
+  [data-design="A"] .cv-principle:first-of-type,
+  [data-design="B"] .cv-principle:first-of-type,
+  [data-design="C"] .cv-principle:first-of-type { grid-column:1 !important; }
+
+  /* Metrics: keep 2-col but tighten padding */
+  [data-design="A"] .cv-metric,
+  [data-design="B"] .cv-metric,
+  [data-design="C"] .cv-metric { padding:14px 10px; }
+
+  /* Section title: ensure no overflow */
+  .cv-section-title { letter-spacing:-0.01em !important; }
+
+  /* Contact row: tighter gap */
+  .cv-contact-row { gap:6px 10px; }
+
+  /* Role grid: ensure single column */
+  [data-design="A"] .cv-role,
+  [data-design="B"] .cv-role,
+  [data-design="C"] .cv-role { grid-template-columns:1fr !important; }
 }
 
   </style>
