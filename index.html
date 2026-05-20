@@ -1022,6 +1022,171 @@ ul { margin: 0; padding: 0; list-style: none; }
 .cv-seg-btn.is-active { background:var(--paper); color:var(--ink); box-shadow:0 1px 3px rgba(0,0,0,0.1); }
 [data-design="B"] .cv-seg-btn.is-active { background:var(--paper-2); }
 
+/* =================================================================
+   PRINT STYLES
+   ================================================================= */
+@media print {
+  /* ---- Page setup ---- */
+  @page { size: A4; margin: 14mm 18mm 14mm 18mm; }
+
+  /* ---- Stop all animations & transitions ---- */
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* ---- Force scroll-reveal items visible ---- */
+  .cv-section, .cv-hero, .cv-footer-band {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* ---- Override all theme CSS variables to light/print-friendly values ---- */
+  [data-design="A"],
+  [data-design="B"],
+  [data-design="C"] {
+    --paper:       #ffffff;
+    --paper-2:     #f0f0f0;
+    --paper-3:     #e4e4e4;
+    --ink:         #111111;
+    --ink-2:       #252525;
+    --ink-3:       #424242;
+    --ink-4:       #616161;
+    --ink-5:       #909090;
+    --rule:        rgba(0,0,0,0.18);
+    --rule-soft:   rgba(0,0,0,0.13);
+    --rule-softer: rgba(0,0,0,0.07);
+    --accent-soft: rgba(0,0,0,0.05);
+    --gutter:      0px;
+    --pad-section: 8mm;
+    --container:   100%;
+    background:    #fff;
+    color:         #111;
+  }
+
+  /* Keep each theme's accent for visual hierarchy */
+  [data-design="A"] { --accent: #7c2d2d; --accent-ink: #5a1f1f; }
+  [data-design="B"] { --accent: #b8860b; --accent-ink: #8b6508; }
+  [data-design="C"] { --accent: #c8282a; --accent-ink: #9e1c1e; }
+
+  /* ---- Root / body ---- */
+  html, body {
+    background: #fff !important;
+    background-image: none !important;
+    overflow: visible !important;
+  }
+
+  /* ---- Layout wrapper ---- */
+  .cv-main { max-width: 100% !important; padding: 0 !important; }
+
+  /* ---- Hide screen-only chrome ---- */
+  .cv-nav,
+  .cv-tweaks,
+  .cv-job-toggle,
+  .cv-pill,
+  .cv-meta-coord { display: none !important; }
+
+  /* ========================================================
+     HERO
+     ======================================================== */
+  .cv-hero { padding: 0 0 6mm !important; }
+
+  /* Scale down the oversized name */
+  .cv-name { font-size: clamp(32pt, 9vw, 48pt) !important; }
+
+  /* Theme C — dark navy hero → white */
+  [data-design="C"] .cv-hero {
+    background: #fff !important;
+    color: #111 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    border-bottom: 3px solid #111 !important;
+  }
+  [data-design="C"] .cv-name,
+  [data-design="C"] .cv-name-last    { color: #111 !important; }
+  [data-design="C"] .cv-name-first   { color: #555 !important; }
+  [data-design="C"] .cv-tagline      { color: #333 !important; }
+  [data-design="C"] .cv-kicker       { color: #666 !important; }
+  [data-design="C"] .cv-kicker-sep   { color: #bbb !important; }
+  [data-design="C"] .cv-contact      { color: #444 !important; border-color: rgba(0,0,0,0.25) !important; }
+
+  /* Theme C — dark metrics band */
+  [data-design="C"] .cv-metrics {
+    background: #f0f0f0 !important;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+  }
+  [data-design="C"] .cv-metric-k { color: #111 !important; }
+  [data-design="C"] .cv-metric-v { color: #555 !important; }
+  [data-design="C"] .cv-metric   { border-right-color: rgba(0,0,0,0.1) !important; }
+
+  /* Theme B — portrait image tag (dark overlay) */
+  [data-design="B"] .cv-portrait-tag {
+    background: rgba(240,240,240,0.95) !important;
+    border-top-color: var(--accent) !important;
+  }
+  [data-design="B"] .cv-portrait-role { color: #111 !important; }
+  [data-design="B"] .cv-portrait-co   { color: var(--accent) !important; }
+
+  /* ========================================================
+     SECTION HEADS
+     ======================================================== */
+
+  /* Theme A — huge ghost watermark number: skip, wastes space */
+  [data-design="A"] .cv-section-num { display: none !important; }
+
+  /* Theme C — dark section head bands: keep dark for structure */
+  [data-design="C"] .cv-section-head {
+    background: #111 !important;
+    margin-left:  0 !important;
+    margin-right: 0 !important;
+    padding-left:  6mm !important;
+    padding-right: 6mm !important;
+  }
+  [data-design="C"] .cv-section-num     { color: rgba(255,255,255,0.18) !important; }
+  [data-design="C"] .cv-section-title   { color: #fff !important; }
+  [data-design="C"] .cv-section-caption { color: rgba(255,255,255,0.55) !important; }
+  [data-design="C"] .cv-section-badge   { color: rgba(255,255,255,0.4)  !important; }
+
+  /* ========================================================
+     JOB ACCORDIONS — expand all for print
+     ======================================================== */
+  .cv-job-body {
+    display: block !important;
+    grid-template-rows: 1fr !important;
+    overflow: visible !important;
+  }
+  .cv-job-body-inner {
+    opacity: 1 !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  /* ========================================================
+     FOOTER
+     ======================================================== */
+  /* Theme A footer is dark; keep it dark (branded) */
+  /* Theme B/C footer is paper-2 which we've overridden to light */
+  [data-design="B"] .cv-footer-band,
+  [data-design="C"] .cv-footer-band {
+    background: var(--paper-2) !important;
+    border-top: 1px solid rgba(0,0,0,0.15) !important;
+  }
+
+  /* ========================================================
+     PAGE BREAKS
+     ======================================================== */
+  .cv-hero    { break-after:  avoid; }
+  .cv-section { break-inside: auto;  }
+  .cv-job     { break-inside: avoid; }
+  .cv-edu-grid,
+  .cv-skills  { break-inside: avoid; }
+  .cv-footer-band { break-before: avoid; }
+}
+
 /* Responsive — shared */
 @media (max-width: 900px) {
   [data-design="A"] .cv-hero-grid,
