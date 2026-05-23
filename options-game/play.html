@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101827" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Options Wars" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <title>Options Trader: Volatility Wars</title>
+  <style>
+    :root{--bg:#080d1c;--panel:#111a33;--panel2:#172341;--text:#edf4ff;--muted:#a9b8d8;--accent:#65f0c5;--blue:#7aa8ff;--good:#78ee9a;--warn:#ffd166;--danger:#ff6f91;--line:rgba(255,255,255,.12)}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at top left,#243a80 0,#080d1c 42%,#060914 100%);color:var(--text);min-height:100vh} button,input,select,textarea{font:inherit}.wrap{max-width:1180px;margin:0 auto;padding:16px 16px 96px}.top{display:grid;grid-template-columns:1.4fr .6fr;gap:14px}.card{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 16px 40px rgba(0,0,0,.28);margin-bottom:14px} h1{font-size:34px;margin:0 0 8px} h2{font-size:26px;margin:0 0 10px} h3{margin:14px 0 8px} p,li{color:var(--muted);line-height:1.55}.pill{display:inline-block;margin:3px 5px 8px 0;padding:6px 10px;border-radius:999px;background:rgba(101,240,197,.14);color:var(--accent);font-size:12px;font-weight:800}.btn{border:0;border-radius:14px;padding:12px 15px;font-weight:900;cursor:pointer;background:var(--accent);color:#05251c;margin:5px;box-shadow:0 5px 16px rgba(0,0,0,.18)}.btn:disabled{opacity:.5;cursor:not-allowed}.secondary{background:#263556;color:var(--text)}.danger{background:var(--danger);color:white}.warn{background:var(--warn);color:#2b2200}.good{background:var(--good);color:#06240e}.stat{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)}.bar{height:12px;background:#273353;border-radius:999px;overflow:hidden}.bar>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--blue));transition:.3s}.nav{display:flex;overflow:auto;gap:8px;padding:14px 0;position:sticky;top:0;z-index:5;background:linear-gradient(180deg,rgba(8,13,28,.98),rgba(8,13,28,.78));backdrop-filter:blur(8px)}.nav button{white-space:nowrap;background:#182542;color:#dbe6ff;border:1px solid var(--line);border-radius:999px;padding:9px 12px;font-size:12px;font-weight:800}.nav button.active{background:var(--accent);color:#06251c}.nav button:disabled{opacity:.45}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px}.choice,.box{border:1px solid var(--line);background:#131f3d;border-radius:18px;padding:15px;min-height:86px}.choice{cursor:pointer}.choice:hover{outline:2px solid rgba(101,240,197,.7)}.choice.done{opacity:.7;pointer-events:none}.scenario{border-left:5px solid var(--accent);background:#101a34;border-radius:14px;padding:13px;margin:12px 0}.terminal{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#050915;border:1px solid #31406e;border-radius:16px;padding:14px;min-height:96px;color:#cfffee;overflow:auto}.result{margin-top:12px;border:1px solid var(--line);border-radius:16px;padding:14px;background:rgba(255,255,255,.06)}.mini{font-size:13px;color:#aab8d4}.market{display:grid;grid-template-columns:1fr 90px 1fr;gap:8px;align-items:stretch}.cell{background:#101a34;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}.ce{color:#88f5a7}.pe{color:#ff9aae}.strike{color:#fff;background:#21325a}.big{font-size:34px;font-weight:1000}.inputRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.inputRow input,.inputRow select,textarea{background:#0b1328;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:10px;min-width:120px}textarea{width:100%;min-height:90px}.bottomBar{position:fixed;bottom:0;left:0;right:0;background:rgba(8,13,28,.94);border-top:1px solid var(--line);backdrop-filter:blur(10px);z-index:6}.bottomInner{max-width:1180px;margin:auto;padding:9px 16px;display:flex;justify-content:space-between;gap:8px;align-items:center}.offline{font-size:12px;color:var(--accent)}.badgeList{display:flex;gap:6px;flex-wrap:wrap}.badge{font-size:12px;padding:5px 8px;border-radius:999px;background:#26385f;color:#dbe6ff}.tag{font-size:12px;border:1px solid #55709e;border-radius:8px;padding:3px 6px;color:#cfe0ff;display:inline-block;margin:2px}.install{display:none}.table{width:100%;border-collapse:collapse}.table th,.table td{border-bottom:1px solid var(--line);padding:9px;text-align:left}.ok{color:var(--good)}.bad{color:var(--danger)}
+    @media(max-width:760px){.top{grid-template-columns:1fr} h1{font-size:28px}.wrap{padding:10px 10px 96px}.market{grid-template-columns:1fr}.bottomInner{font-size:13px}.btn{padding:11px 12px}.card{padding:15px}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="card">
+      <span class="pill">Offline PWA</span><span class="pill">Content-heavy game</span><span class="pill">Starts reliably</span>
+      <h1>🎮 Options Trader: Volatility Wars</h1>
+      <p>A fun-and-learn options RPG covering calls, puts, option chain, IV, Greeks, payoff graphs, delta neutral, theta harvesting, gamma risk, vega, calendars, diagonals, iron condors, adjustments, and risk rules.</p>
+      <button class="btn" id="startBtn" type="button">Start / Continue Game</button>
+      <button class="btn secondary" id="tourBtn" type="button">Open Chapter Map</button>
+      <button class="btn secondary install" id="installBtn" type="button">Install App</button>
+      <button class="btn danger" id="resetBtn" type="button">Reset</button>
+    </div>
+    <div class="card">
+      <h3>Player Stats</h3>
+      <div class="stat"><span>Capital</span><b id="capital">₹10,00,000</b></div>
+      <div class="stat"><span>XP</span><b id="xp">0</b></div>
+      <div class="stat"><span>Rank</span><b id="rank">Retail Rookie</b></div>
+      <div class="stat"><span>Badges</span><b id="badgeCount">0</b></div>
+      <p class="mini">Progress</p><div class="bar"><span id="progressBar"></span></div><p class="mini" id="progressText">0%</p>
+    </div>
+  </div>
+  <div class="nav" id="nav"></div>
+  <main class="card" id="game"><h2>Loading game...</h2></main>
+</div>
+<div class="bottomBar"><div class="bottomInner"><span class="offline" id="offlineStatus">Checking offline support…</span><span><button class="btn secondary" id="prevBtn" type="button">Prev</button><button class="btn" id="nextBtn" type="button">Next</button></span></div></div>
+<script src="game.js?v=2"></script>
+</body>
+</html>
