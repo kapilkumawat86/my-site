@@ -64,14 +64,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin/>
   <link rel="preload" as="image" href="https://avatars.githubusercontent.com/kapilkumawat86?s=700" fetchpriority="high"/>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=optional"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=optional" media="print" onload="this.media='all'"/>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" media="print" onload="this.media='all'"/>
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=optional"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap"/>
-  </noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=optional" media="print" onload="this.media='all'"/>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=optional"/></noscript>
   <style>
 :root {
   --paper: #f8fafc;
@@ -211,14 +205,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .cv-nav-path {
-  color: var(--accent);
+  color: var(--accent-text);
   font-weight: 700;
 }
 
 .cv-nav-link:hover,
 .cv-nav-link:focus-visible {
   background: rgba(16, 185, 129, 0.1);
-  color: var(--accent);
+  color: var(--accent-text);
   outline: none;
 }
 
@@ -265,7 +259,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .cv-btn-ghost:hover,
 .cv-btn-ghost:focus-visible {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-text);
   outline: none;
 }
 
@@ -412,7 +406,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .cv-contact:hover,
 .cv-contact:focus-visible {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-text);
   outline: none;
 }
 
@@ -1195,7 +1189,7 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
   padding: 0;
   flex-shrink: 0;
 }
-.cv-theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+.cv-theme-btn:hover { border-color: var(--accent); color: var(--accent-text); }
 .cv-theme-btn .icon { width: 16px; height: 16px; }
 
 @media print {
