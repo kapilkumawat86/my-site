@@ -1,1 +1,28 @@
-{"name":"Options Trader: Volatility Wars","short_name":"OptionsWars","start_url":"./index.html","display":"standalone","background_color":"#0b1020","theme_color":"#10172a","orientation":"portrait-primary","icons":[{"src":"icon-192.png","sizes":"192x192","type":"image/png"},{"src":"icon-512.png","sizes":"512x512","type":"image/png"}]}
+{
+  "name": "Options Trader: Volatility Wars",
+  "short_name": "OptionsWars",
+  "description": "A 13-chapter interactive game for learning options trading: calls, puts, Greeks, Iron Condors, and risk management.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#10172a",
+  "orientation": "portrait-primary",
+  "categories": ["education", "finance", "games"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
