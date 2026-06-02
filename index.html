@@ -74,9 +74,10 @@
   --surface-muted: #f1f5f9;
   --ink: #0f172a;
   --ink-muted: #475569;
-  --ink-soft: #94a3b8;
+  --ink-soft: #536273;
   --accent: #10b981;
-  --accent-2: #0ea5e9;
+  --accent-text: #047857;
+  --accent-2: #0369a1;
   --accent-hover: #059669;
   --rule: rgba(15, 23, 42, 0.12);
   --rule-strong: rgba(15, 23, 42, 0.22);
@@ -116,7 +117,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(247, 245, 240, 0.92);
+  background: rgba(248, 250, 252, 0.92);
   border-bottom: 1px solid var(--rule);
   backdrop-filter: blur(14px);
 }
@@ -129,6 +130,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 28px;
+  min-height: 64px;
 }
 
 .cv-nav-mark {
@@ -172,7 +174,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .cv-mark-tld {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .cv-mark-sub {
@@ -241,7 +243,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .cv-btn-primary {
   background: var(--accent);
-  color: #fff;
+  color: #0f172a;
 }
 
 .cv-btn-primary:hover,
@@ -284,7 +286,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid rgba(16, 185, 129, 0.28);
   border-radius: 999px;
   background: rgba(16, 185, 129, 0.08);
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -337,7 +339,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .cv-title-line {
   margin: 18px 0 0;
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: clamp(17px, 2vw, 24px);
   font-weight: 800;
 }
@@ -470,7 +472,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .cv-metric-k {
-  color: var(--accent);
+  color: var(--accent-text);
   font-family: "Space Grotesk", "Inter", sans-serif;
   font-size: clamp(26px, 3vw, 42px);
   font-weight: 700;
@@ -502,7 +504,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .cv-section-num {
-  color: var(--accent);
+  color: var(--accent-text);
   font-family: "Space Grotesk", "Inter", sans-serif;
   font-size: 17px;
   font-weight: 700;
@@ -569,7 +571,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .cv-principle-k {
   display: block;
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -621,7 +623,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .cv-job-index {
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 12px;
   font-weight: 800;
 }
@@ -794,7 +796,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .cv-edu-range {
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 12px;
   font-weight: 800;
 }
@@ -817,7 +819,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .cv-award-count {
-  color: var(--accent);
+  color: var(--accent-text);
   font-family: "Space Grotesk", "Inter", sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -901,7 +903,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .cv-meta-list dt {
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.60);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -929,7 +931,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   justify-content: space-between;
   gap: 12px;
   padding-top: 22px;
-  color: rgba(255, 255, 255, 0.38);
+  color: rgba(255, 255, 255, 0.55);
   font-size: 11px;
 }
 
@@ -946,7 +948,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   z-index: 200;
   padding: 8px 14px;
   background: var(--accent);
-  color: #fff;
+  color: #0f172a;
   border-radius: 0 0 6px 6px;
   font-size: 13px;
   font-weight: 700;
@@ -1087,7 +1089,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: 100%;
   padding: 0;
   background: var(--accent);
-  color: #fff;
+  color: #0f172a;
   cursor: pointer;
   list-style: none;
 }
@@ -1109,8 +1111,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-family: "Space Grotesk", "Inter", sans-serif;
   font-size: 13px;
   font-weight: 700;
-  opacity: 0.72;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0.65;
+  border-right: 1px solid rgba(15, 23, 42, 0.2);
   flex: 0 0 auto;
 }
 
@@ -1139,7 +1141,9 @@ ul { margin: 0; padding: 0; list-style: none; }
     --surface-muted: #334155;
     --ink: #f8fafc;
     --ink-muted: #94a3b8;
-    --ink-soft: #64748b;
+    --ink-soft: #8a9ab0;
+    --accent-text: #10b981;
+    --accent-2: #38bdf8;
     --accent-hover: #34d399;
     --rule: rgba(248, 250, 252, 0.09);
     --rule-strong: rgba(248, 250, 252, 0.18);
@@ -1158,7 +1162,9 @@ html.theme-dark {
   --surface-muted: #334155;
   --ink: #f8fafc;
   --ink-muted: #94a3b8;
-  --ink-soft: #64748b;
+  --ink-soft: #8a9ab0;
+  --accent-text: #10b981;
+  --accent-2: #38bdf8;
   --accent-hover: #34d399;
   --rule: rgba(248, 250, 252, 0.09);
   --rule-strong: rgba(248, 250, 252, 0.18);
@@ -1262,7 +1268,7 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
   <a href="#about" class="cv-skip-link">Skip to main content</a>
   <nav class="cv-nav" aria-label="Primary navigation">
     <div class="cv-nav-inner">
-      <a href="#top" class="cv-nav-mark" aria-label="kapilkumawat.in - home">
+      <a href="#top" class="cv-nav-mark">
         <div class="cv-mark-icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="22" height="22">
             <path d="M18 28 L44 50 L18 72" fill="none" stroke="#10B981" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1287,7 +1293,7 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
         <button type="button" id="cv-theme-btn" class="cv-theme-btn" aria-label="Switch colour theme (current: auto)">
           <svg class="icon" id="cv-theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         </button>
-        <a class="cv-btn cv-btn-ghost" href="Kapil-Kumawat-Resume.pdf" download="Kapil-Kumawat-Resume.pdf" aria-label="Download resume PDF">
+        <a class="cv-btn cv-btn-ghost" href="Kapil-Kumawat-Resume.pdf" download="Kapil-Kumawat-Resume.pdf" aria-label="Download CV">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           <span>Download CV</span>
         </a>
@@ -1337,7 +1343,7 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
               </a>
             </div>
             <div class="cv-hero-download">
-              <a class="cv-btn cv-btn-ghost" href="Kapil-Kumawat-Resume.pdf" download="Kapil-Kumawat-Resume.pdf" aria-label="Download resume PDF">
+              <a class="cv-btn cv-btn-ghost" href="Kapil-Kumawat-Resume.pdf" download="Kapil-Kumawat-Resume.pdf" aria-label="Download CV">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 <span>Download CV</span>
               </a>
