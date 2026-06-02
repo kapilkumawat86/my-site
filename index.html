@@ -1086,20 +1086,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   line-height: 1.68;
 }
 
-/* Dark vars shared by auto (media query) and forced (.theme-dark) */
-@mixin-dark-vars {
-  --paper: #111318;
-  --surface: #1a1e27;
-  --surface-muted: #22273a;
-  --ink: #edf0f5;
-  --ink-muted: #9ba8be;
-  --ink-soft: #6b7a9a;
-  --rule: rgba(237, 240, 245, 0.1);
-  --rule-strong: rgba(237, 240, 245, 0.2);
-}
-
+/* Auto dark: follows OS, suppressed when user forces light */
 @media (prefers-color-scheme: dark) {
-  html:not(.theme-light) :root {
+  html:not(.theme-light) {
     --paper: #111318;
     --surface: #1a1e27;
     --surface-muted: #22273a;
@@ -1115,7 +1104,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   html:not(.theme-light) .cv-footer-band { background: #0a0c10; }
 }
 
-html.theme-dark :root {
+/* Forced dark: user toggled to dark regardless of OS */
+html.theme-dark {
   --paper: #111318;
   --surface: #1a1e27;
   --surface-muted: #22273a;
