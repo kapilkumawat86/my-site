@@ -7,7 +7,7 @@
   <meta name="description" content="Kapil Kumawat - Senior Director of Engineering with 17+ years scaling B2B SaaS engineering teams. Expert in CI/CD, DevOps, front-end architecture, and technical leadership. Open to Director / VP of Engineering roles."/>
   <meta name="author" content="Kapil Kumawat"/>
   <meta name="robots" content="index, follow"/>
-  <meta name="keywords" content="Kapil Kumawat, Director of Engineering, VP of Engineering, Engineering Leader, B2B SaaS, CI/CD, DevOps, Front-end Architecture, Angular, React, Jaipur"/>
+  <meta name="keywords" content="Kapil Kumawat, Director of Engineering, VP of Engineering, Engineering Leader, B2B SaaS, CI/CD, DevOps, Front-end Architecture, Angular, React, Jaipur, Engineering Leadership, Scaling SaaS Teams, Platform Engineering, Remote Global Team Leadership, Frontend Architecture, Hiring Mentoring Execution Delivery, AI-enabled Product Engineering"/>
   <link rel="canonical" href="https://kapilkumawat.in/"/>
   <meta property="og:type" content="profile"/>
   <meta property="og:url" content="https://kapilkumawat.in/"/>
@@ -29,6 +29,14 @@
   <link rel="apple-touch-icon" href="favicon.svg"/>
   <link rel="manifest" href="site.webmanifest"/>
   <meta name="theme-color" content="#8b2f2f"/>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNNQHN5C94"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BNNQHN5C94');
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -52,7 +60,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@700&display=swap&display=swap" rel="stylesheet"/>
   <style>
 :root {
   --paper: #f7f5f0;
@@ -73,6 +81,10 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
 body {
   overflow-x: hidden;
   background: var(--paper);
@@ -879,6 +891,21 @@ ul { margin: 0; padding: 0; list-style: none; }
   flex: 0 0 auto;
 }
 
+.cv-skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 200;
+  padding: 8px 14px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 0 0 6px 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.cv-skip-link:focus { top: 0; }
+
 @media (max-width: 900px) {
   .cv-nav-inner {
     grid-template-columns: 1fr auto;
@@ -981,6 +1008,74 @@ ul { margin: 0; padding: 0; list-style: none; }
   }
 }
 
+/* ── Impact Portfolio section ── */
+.cv-impact-list {
+  display: grid;
+  gap: 10px;
+}
+
+.cv-impact-area {
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.cv-impact-area[open] {
+  border-color: rgba(139, 47, 47, 0.32);
+  box-shadow: 0 16px 36px rgba(23, 32, 42, 0.06);
+}
+
+.cv-impact-head {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  padding: 0;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  list-style: none;
+}
+
+.cv-impact-head::-webkit-details-marker { display: none; }
+
+.cv-impact-head:hover,
+.cv-impact-head:focus-visible {
+  background: #6f2525;
+  outline: none;
+}
+
+.cv-impact-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  padding: 14px 16px;
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.72;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  flex: 0 0 auto;
+}
+
+.cv-impact-title {
+  padding: 14px 18px;
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.cv-impact-body {
+  padding: 20px 24px 24px;
+}
+
+.cv-impact-body .cv-role-bullets li {
+  font-size: 14.5px;
+  line-height: 1.68;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --paper: #111318;
@@ -1056,6 +1151,21 @@ ul { margin: 0; padding: 0; list-style: none; }
     display: block;
   }
 
+  .cv-impact-area {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .cv-impact-area:not([open]) .cv-impact-body {
+    display: block;
+  }
+
+  .cv-impact-head {
+    background: #8b2f2f !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   .cv-footer-band {
     background: #fff;
     color: #111;
@@ -1070,6 +1180,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   </style>
 </head>
 <body>
+  <a href="#about" class="cv-skip-link">Skip to main content</a>
   <nav class="cv-nav" aria-label="Primary navigation">
     <div class="cv-nav-inner">
       <a href="#top" class="cv-nav-mark">
@@ -1078,16 +1189,17 @@ ul { margin: 0; padding: 0; list-style: none; }
       </a>
       <ul class="cv-nav-links">
         <li><a href="#about" class="cv-nav-link"><span class="cv-nav-num">01</span><span>About</span></a></li>
-        <li><a href="#experience" class="cv-nav-link"><span class="cv-nav-num">02</span><span>Experience</span></a></li>
-        <li><a href="#skills" class="cv-nav-link"><span class="cv-nav-num">03</span><span>Skills</span></a></li>
-        <li><a href="#education" class="cv-nav-link"><span class="cv-nav-num">04</span><span>Education</span></a></li>
+        <li><a href="#impact" class="cv-nav-link"><span class="cv-nav-num">02</span><span>Impact</span></a></li>
+        <li><a href="#experience" class="cv-nav-link"><span class="cv-nav-num">03</span><span>Experience</span></a></li>
+        <li><a href="#skills" class="cv-nav-link"><span class="cv-nav-num">04</span><span>Skills</span></a></li>
+        <li><a href="#education" class="cv-nav-link"><span class="cv-nav-num">05</span><span>Education</span></a></li>
       </ul>
       <div class="cv-nav-actions">
-        <button class="cv-btn cv-btn-ghost" type="button" onclick="window.print()">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          <span>Print</span>
-        </button>
-        <a class="cv-btn cv-btn-primary" href="mailto:erkapil2006@gmail.com">
+        <a class="cv-btn cv-btn-ghost" href="Kapil-Kumawat-Resume.pdf" download="Kapil-Kumawat-Resume.pdf" aria-label="Download resume PDF">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download CV</span>
+        </a>
+        <a class="cv-btn cv-btn-primary" href="mailto:erkapil2006@gmail.com?subject=Director%20%2F%20VP%20Engineering%20role">
           <span>Get in touch</span>
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -1113,9 +1225,9 @@ ul { margin: 0; padding: 0; list-style: none; }
           <p class="cv-title-line">Sr. Director of Engineering</p>
           <p class="cv-tagline">Engineering leadership for B2B SaaS scale.</p>
           <ul class="cv-proof-list">
-            <li>Built and led engineering teams across Goldcast, Harness, ServiceNow, AppDynamics, Pega, CA, and Syntel.</li>
-            <li>Operates across strategy, hiring, delivery systems, CI/CD, test discipline, and hands-on architecture review.</li>
-            <li>Best fit for B2B SaaS teams scaling past product-market fit into durable weekly delivery.</li>
+            <li>Architected the Harness platform frontend from scratch — a 500+ step pipeline framework unchanged for 6+ years, underpinning 8× ARR growth across the company's highest-revenue phase.</li>
+            <li>Led Goldcast engineering through acquisition by Cvent; drove $230K+ in annual engineering cost savings; personally rescued a six-figure client contract.</li>
+            <li>Scaled and led 30+ engineers across 5 countries; converted 26+ interns into production engineers; trusted by CEOs and executive leadership for critical people and customer decisions.</li>
           </ul>
           <div class="cv-hero-footer">
             <div class="cv-contact-row">
@@ -1150,9 +1262,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 
       <div class="cv-metrics" aria-label="Leadership metrics">
         <div class="cv-metric"><div class="cv-metric-k">17+</div><div class="cv-metric-v">Years in engineering</div></div>
-        <div class="cv-metric"><div class="cv-metric-k">0-&gt;10x</div><div class="cv-metric-v">Team and org scaling</div></div>
-        <div class="cv-metric"><div class="cv-metric-k">70%</div><div class="cv-metric-v">Test coverage from zero</div></div>
-        <div class="cv-metric"><div class="cv-metric-k">Director/VP</div><div class="cv-metric-v">Target leadership scope</div></div>
+        <div class="cv-metric"><div class="cv-metric-k">8×</div><div class="cv-metric-v">ARR growth supported at Harness</div></div>
+        <div class="cv-metric"><div class="cv-metric-k">30+</div><div class="cv-metric-v">Engineers led across 5 countries</div></div>
+        <div class="cv-metric"><div class="cv-metric-k">$230K+</div><div class="cv-metric-v">Annual cost savings driven</div></div>
       </div>
     </header>
 
@@ -1181,9 +1293,134 @@ ul { margin: 0; padding: 0; list-style: none; }
       </div>
     </section>
 
-    <section id="experience" class="cv-section">
+    <section id="impact" class="cv-section">
       <div class="cv-section-head">
         <div class="cv-section-num">02</div>
+        <div>
+          <h2 class="cv-section-title">Impact Portfolio</h2>
+          <p class="cv-section-caption">7 capability areas across 17+ years</p>
+        </div>
+      </div>
+      <div class="cv-impact-list">
+
+        <details class="cv-impact-area" open>
+          <summary class="cv-impact-head">
+            <span class="cv-impact-num">01</span>
+            <span class="cv-impact-title">Frontend Engineering Highlights</span>
+          </summary>
+          <div class="cv-impact-body">
+            <ul class="cv-role-bullets">
+              <li>Architected a proprietary, extensible <strong>pipeline step framework</strong> at Harness using Abstract Factory design patterns during the 2020 full product rewrite — solving a critical QA bottleneck where any single step change triggered complete re-validation of all 65+ steps, each requiring 2 weeks of testing and recurring regression failures.</li>
+              <li>Designed each pipeline step as a fully isolated, independently manageable unit — enabling zero cross-step impact on change or addition, zero performance regression, and <strong>fewer than 10 bugs raised against the core framework</strong> across its entire lifetime.</li>
+              <li>Framework proved so robust that the <strong>core has remained unchanged for 6+ years</strong>, now supporting 500+ pipeline steps across Harness CD, CI, and Feature Flags — effectively becoming a proprietary internal standard at Harness.</li>
+              <li>Drove unit test automation from <strong>0% to 70% coverage</strong> at Harness as Staff Software Engineer — coaching the team on TDD and establishing a culture of test discipline that underpinned the entire platform rewrite.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="cv-impact-area" open>
+          <summary class="cv-impact-head">
+            <span class="cv-impact-num">02</span>
+            <span class="cv-impact-title">Building Products from Scratch</span>
+          </summary>
+          <div class="cv-impact-body">
+            <ul class="cv-role-bullets">
+              <li>Led the complete ground-up rewrite of the <strong>Harness platform UI in 2020</strong> — scrapping the existing product entirely and architecting a new frontend designed to scale from a single CI/CD product to a unified multi-product platform spanning CD, CI, Feature Flags, and beyond.</li>
+              <li>Designed and built the <strong>core pipeline step framework, shared UI component library, custom router framework, and build system with quality controls</strong> — the foundational architecture on which the entire Harness frontend still operates today.</li>
+              <li>Engineered a <strong>proprietary string externalization framework</strong> for React — built in-house after evaluating and rejecting react-intl and react-i18next — using YAML, mustache.js templating, and TypeScript for full validation and autocomplete; enabling documentation teams to manage thousands of UI strings with zero developer intervention. Published on the Harness engineering blog.</li>
+              <li>Built a <strong>scalable tooltip framework</strong> enabling the documentation team to manage and update tooltips across the entire product independently — with 1,500+ tooltips implemented via a unique DOM node identification system and CI-driven npm package.</li>
+              <li>Delivered <strong>100% performant pipeline UI</strong> with zero performance regression across the rewrite, even as product surface expanded 4–5× in scope.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="cv-impact-area" open>
+          <summary class="cv-impact-head">
+            <span class="cv-impact-num">03</span>
+            <span class="cv-impact-title">Managing and Building Teams</span>
+          </summary>
+          <div class="cv-impact-body">
+            <ul class="cv-role-bullets">
+              <li>Served as <strong>founding UI engineer in India</strong> at both ServiceNow (Performance Analytics BU) and AppDynamics (Cisco) — building the frontend engineering function from zero in each organisation, scaling to <strong>10+ developers within 9–12 months</strong> in both cases.</li>
+              <li>At Harness, joined as one of the first 7–8 UI engineers and grew into managing the <strong>entire global UI engineering organisation within 18–20 months</strong> — ultimately leading <strong>30+ frontend developers across 5 countries</strong> (Ireland, Serbia, US, Brazil, and Canada).</li>
+              <li>Built a reputation for <strong>re-recruiting proven talent</strong> across organisations — consistently identifying and rehiring engineers from previous teams, reducing hiring risk and accelerating team ramp-up.</li>
+              <li>Conducted <strong>thousands of technical interviews</strong> and developed a strong conviction that raw coding ability combined with learning agility is a stronger hiring signal than current framework knowledge — and built teams accordingly.</li>
+              <li>Established a <strong>structured intern-to-engineer pipeline</strong> — daily 30-minute coaching sessions with milestone and goal-based progression — successfully converting <strong>20+ interns into production-ready frontend engineers</strong> at Harness and a further <strong>6+ at Goldcast</strong>.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="cv-impact-area">
+          <summary class="cv-impact-head">
+            <span class="cv-impact-num">04</span>
+            <span class="cv-impact-title">Client &amp; Customer Facing Experience</span>
+          </summary>
+          <div class="cv-impact-body">
+            <ul class="cv-role-bullets">
+              <li>Served as <strong>engineering-side owner of all customer relationships</strong> at Goldcast for 18+ months — acting as the senior technical escalation point across the entire customer base, bridging engineering accountability with customer success outcomes.</li>
+              <li>Managed a critical escalation with one of the <strong>world's top financial institutions</strong> — when a platform performance issue during a live event forced the client to abandon Goldcast mid-event, personally de-escalated the situation and restored confidence with a clear recovery commitment.</li>
+              <li>Following a second internal process failure the next day, conducted a <strong>2-hour live technical session</strong> with the client — resolved 2–3 outstanding demands in real time, delivered immediate fixes, and personally assumed full account ownership without deflecting blame onto the team.</li>
+              <li>Provided <strong>6 months of dedicated personal oversight</strong> on this account — becoming the single point of engineering accountability, universally referred to within the company as <em>'Kapil's account.'</em></li>
+              <li>Outcome: the client <strong>renewed at 2× their previous contract value</strong> — a six-figure deal — driven entirely by trust rebuilt through hands-on technical leadership and consistent personal commitment.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="cv-impact-area">
+          <summary class="cv-impact-head">
+            <span class="cv-impact-num">05</span>
+            <span class="cv-impact-title">Working with Global Partners &amp; Leadership</span>
+          </summary>
+          <div class="cv-impact-body">
+            <ul class="cv-role-bullets">
+              <li>During the 2020 Harness platform rewrite, conducted a <strong>6-hour live coding session over Zoom with Jyoti Bansal (CEO &amp; Co-founder, Harness)</strong> and the UX Head — starting at 11 PM — to define and prototype the first visual direction of the new Harness platform. This session directly shaped the UI architecture and design language the product was built upon.</li>
+              <li>Operated seamlessly across <strong>Ireland, Serbia, US, Brazil, and Canada</strong> as engineering manager for Harness's global UI organisation — managing delivery, culture, and team development across significant time zone and cultural differences.</li>
+              <li>At Goldcast, became <strong>executive leadership's trusted partner for critical people retention</strong> — identified as the person best placed to engage and retain high-value engineers at risk of leaving through direct, honest conversations about career growth and long-term vision. Successfully retained several critical employees.</li>
+              <li>Demonstrated throughout career that <strong>engineering credibility and personal trust are inseparable</strong> — earning a level of access and confidence with CEOs, UX leadership, and global executives typically reserved for much larger organisational roles.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="cv-impact-area">
+          <summary class="cv-impact-head">
+            <span class="cv-impact-num">06</span>
+            <span class="cv-impact-title">Technology Innovations &amp; Revenue / Scale / Users</span>
+          </summary>
+          <div class="cv-impact-body">
+            <ul class="cv-role-bullets">
+              <li>Contributed to <strong>Harness achieving 8× ARR scale</strong> during a 3.5-year tenure — joining as Principal/Staff Engineer and exiting as Senior Engineering Manager having helped architect the core platform that underpinned the company's highest-growth phase.</li>
+              <li>Part of the Goldcast leadership team that drove strong revenue growth, culminating in a <strong>successful acquisition by Cvent</strong> — one of the world's leading event technology platforms.</li>
+              <li>Drove <strong>annual cost savings of $190K</strong> by migrating observability tooling across 6+ products from an incumbent vendor to Coralogix — negotiating and executing the transition at roughly one-quarter of the previous cost ($60K vs $250K annually).</li>
+              <li>Delivered an additional <strong>$40K annual saving</strong> by migrating feature flag management from LaunchDarkly to Harness Feature Flags — identifying the opportunity, owning the migration, and eliminating redundant vendor cost.</li>
+              <li>Presented a <strong>formal annual cost and revenue impact review</strong> to leadership for 3 consecutive years — quantifying engineering's direct contribution to company P&amp;L through software savings, retained revenue, and deal enablement.</li>
+              <li>Became a <strong>trusted technical closer for the sales organisation</strong> — regularly engaged to provide quick workarounds, technical proof points, and live solutions to unblock renewals and new acquisitions. Deals enabled include contracts with <strong>two of the top AI companies currently operating in the market.</strong></li>
+              <li>Personally accountable for <strong>retaining multiple six-figure customer contracts</strong> through hands-on engineering support and escalation management over an 18-month period.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="cv-impact-area">
+          <summary class="cv-impact-head">
+            <span class="cv-impact-num">07</span>
+            <span class="cv-impact-title">Coaching Senior Managers &amp; Succession Planning</span>
+          </summary>
+          <div class="cv-impact-body">
+            <ul class="cv-role-bullets">
+              <li>Currently managing and developing <strong>3 engineering managers at Goldcast</strong> — owning their growth, decision-making frameworks, and leadership effectiveness as direct reports within the engineering organisation.</li>
+              <li>Successfully transitioned <strong>2 Individual Contributors to Engineering Managers at Goldcast</strong> — identifying leadership potential early, creating progressive ownership opportunities, and building team confidence in their authority. Both transitions were well received by their respective teams.</li>
+              <li>At Harness, identified and invested in <strong>Yunus AM</strong>, a Senior IC, as a future engineering leader — providing structured 1-year coaching focused on people management and leadership presence. Yunus went on to become <strong>UI Engineering Manager at SigNoz</strong>, successfully leading a large frontend team.</li>
+              <li>Established a consistent <strong>personal philosophy around leadership development</strong> — identifying slope over intercept, investing early in high-potential engineers regardless of current seniority, with a track record of people who outgrow their roles and go on to lead teams at scale.</li>
+              <li>Recognised internally at Goldcast as the <strong>go-to leader for people confidence and retention</strong> — trusted by executive leadership to step into sensitive conversations with engineers at risk, demonstrating that coaching extends beyond formal reporting lines.</li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <section id="experience" class="cv-section">
+      <div class="cv-section-head">
+        <div class="cv-section-num">03</div>
         <div>
           <h2 class="cv-section-title">Experience</h2>
           <p class="cv-section-caption">Engineering leadership from IC to Sr. Director</p>
@@ -1203,19 +1440,18 @@ ul { margin: 0; padding: 0; list-style: none; }
             <div class="cv-role">
               <div class="cv-role-meta"><div class="cv-role-title">Sr. Director of Engineering</div><div class="cv-role-range">Sep 2025 - Present</div></div>
               <ul class="cv-role-bullets">
-                <li>Lead and mentor the entire engineering organization for the Goldcast Events core team.</li>
-                <li>Define and execute high-level technical strategy and product roadmap, aligned to core business objectives.</li>
-                <li>Drive engineering excellence, operational stability, and platform scalability for a growing enterprise customer base.</li>
-                <li>Own full SDLC, departmental budget, and scaling the org by hiring and developing engineering leaders.</li>
+                <li>Lead the full engineering organisation for Goldcast Events post-acquisition — technical strategy, roadmap, SDLC, and platform scalability through a Cvent integration phase.</li>
+                <li>Managing 3 engineering managers as direct reports; accountable for departmental budget, org design, and developing the next tier of engineering leadership.</li>
+                <li>Serve as executive leadership's trusted partner for high-stakes people retention and critical customer escalations beyond formal reporting scope.</li>
               </ul>
             </div>
             <div class="cv-role">
               <div class="cv-role-meta"><div class="cv-role-title">Director of Engineering</div><div class="cv-role-range">Apr 2023 - Sep 2025</div></div>
               <ul class="cv-role-bullets">
-                <li>Built and scaled the company's product development and DevOps functions from the ground up.</li>
-                <li>Established best practices for code quality, agile processes, and system architecture.</li>
-                <li>Led CI/CD strategy with measurable lift in deployment velocity and lower production regression rate.</li>
-                <li>Managed multiple product and platform teams through key company milestones.</li>
+                <li>Built engineering and DevOps from the ground up through the company's highest-growth phase, culminating in acquisition by Cvent.</li>
+                <li>Drove $190K annual cost savings via observability tooling migration and an additional $40K by migrating feature flag management — presenting formal cost &amp; revenue impact reviews to leadership for 3 consecutive years.</li>
+                <li>Served as engineering-side owner of all customer relationships for 18+ months — de-escalated a critical incident with a top financial institution, leading to a contract renewal at 2× the previous value.</li>
+                <li>Became a trusted technical closer for the sales organisation; enabled deals including contracts with two of the top AI companies in the market.</li>
               </ul>
             </div>
           </div>
@@ -1233,7 +1469,11 @@ ul { margin: 0; padding: 0; list-style: none; }
           <div class="cv-job-body">
             <div class="cv-role">
               <div class="cv-role-meta"><div class="cv-role-title">Senior Engineering Manager, UI</div><div class="cv-role-range">Feb 2022 - Apr 2023</div></div>
-              <ul class="cv-role-bullets"><li>Managed multiple UI teams across time zones.</li><li>Expanded scope into product UX/UI and new product features.</li></ul>
+              <ul class="cv-role-bullets">
+                <li>Led <strong>30+ frontend engineers across 5 countries</strong> (Ireland, Serbia, US, Brazil, Canada) — the entire global Harness UI engineering organisation.</li>
+                <li>Built a systematic re-recruiting practice; conducted thousands of technical interviews; established a structured intern-to-engineer pipeline converting 20+ interns into production engineers.</li>
+                <li>Expanded scope to own product UX/UI direction and new product features across Harness CD, CI, and Feature Flags.</li>
+              </ul>
             </div>
             <div class="cv-role">
               <div class="cv-role-meta"><div class="cv-role-title">Engineering Manager, UI</div><div class="cv-role-range">Apr 2021 - Feb 2022</div></div>
@@ -1241,11 +1481,18 @@ ul { margin: 0; padding: 0; list-style: none; }
             </div>
             <div class="cv-role">
               <div class="cv-role-meta"><div class="cv-role-title">Principal Software Engineer</div><div class="cv-role-range">Oct 2020 - Apr 2021</div></div>
-              <ul class="cv-role-bullets"><li>Built the generic pipeline library used across Harness CD, CI, and FF products.</li><li>Shipped shared UI component library, build system, and quality controls.</li></ul>
+              <ul class="cv-role-bullets">
+                <li>Architected the proprietary <strong>pipeline step framework</strong> using Abstract Factory design patterns — 500+ steps across CD, CI, and Feature Flags; core unchanged for 6+ years with fewer than 10 lifetime bugs.</li>
+                <li>Built the shared UI component library, custom router framework, and build system with quality controls — the foundational architecture the entire Harness frontend still runs on today.</li>
+                <li>Engineered a proprietary <strong>string externalization framework</strong> for React using YAML + mustache.js; published on the Harness engineering blog. Built a tooltip framework with 1,500+ documentation-managed tooltips via CI-driven npm package.</li>
+              </ul>
             </div>
             <div class="cv-role">
               <div class="cv-role-meta"><div class="cv-role-title">Staff Software Engineer</div><div class="cv-role-range">Nov 2019 - Oct 2020</div></div>
-              <ul class="cv-role-bullets"><li>Took unit-test automation from 0 to 70% coverage; coached the team on TDD.</li></ul>
+              <ul class="cv-role-bullets">
+                <li>Led the ground-up rewrite of the Harness platform UI — scaling architecture from a single CI/CD product to a unified multi-product platform with <strong>zero performance regression</strong> as scope expanded 4–5×.</li>
+                <li>Drove unit test automation from <strong>0% to 70% coverage</strong>, coaching the team on TDD; co-facilitated a 6-hour live design session with the CEO &amp; Co-founder to define the platform's foundational visual direction.</li>
+              </ul>
             </div>
           </div>
         </details>
@@ -1305,7 +1552,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
     <section id="skills" class="cv-section">
       <div class="cv-section-head">
-        <div class="cv-section-num">03</div>
+        <div class="cv-section-num">04</div>
         <div>
           <h2 class="cv-section-title">Skills</h2>
           <p class="cv-section-caption">Leadership, platform, and engineering capabilities</p>
@@ -1329,7 +1576,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
     <section id="education" class="cv-section">
       <div class="cv-section-head">
-        <div class="cv-section-num">04</div>
+        <div class="cv-section-num">05</div>
         <div>
           <h2 class="cv-section-title">Education &amp; Recognition</h2>
           <p class="cv-section-caption">Formal study, certifications, and awards</p>
@@ -1374,7 +1621,7 @@ ul { margin: 0; padding: 0; list-style: none; }
           <h2 class="cv-footer-h">Director / VP of Engineering leadership for teams ready to scale.</h2>
           <p class="cv-footer-p">I work best with B2B SaaS teams that need stronger engineering systems, clearer ownership, and reliable delivery as the organization grows.</p>
           <div class="cv-footer-actions">
-            <a class="cv-btn cv-btn-primary" href="mailto:erkapil2006@gmail.com"><span>erkapil2006@gmail.com</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="cv-btn cv-btn-primary" href="mailto:erkapil2006@gmail.com?subject=Director%20%2F%20VP%20Engineering%20role"><span>erkapil2006@gmail.com</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a class="cv-btn cv-btn-ghost" href="https://www.linkedin.com/in/kapilkumawat1" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </div>
