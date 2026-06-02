@@ -1,0 +1,31 @@
+name: Validate
+
+on:
+  push:
+    branches: [main, 'claude/**']
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify required files
+        run: |
+          for f in index.html sitemap.xml robots.txt CNAME \
+                   options-game/index.html options-game/game.js \
+                   options-game/service-worker.js options-game/manifest.json \
+                   options-game/icon.svg; do
+            test -f "$f" || (echo "Missing: $f" && exit 1)
+          done
+          echo "All required files present"
+
+      - name: JavaScript syntax check
+        run: |
+          node --check options-game/game.js
+          node --check options-game/service-worker.js
+          echo "JavaScript syntax valid"
+
+      - name: Sitemap XML validation
+        run: python3 -c "import xml.etree.ElementTree as ET; ET.parse('sitemap.xml'); print('Sitemap XML valid')"
