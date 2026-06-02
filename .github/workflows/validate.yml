@@ -28,4 +28,4 @@ jobs:
           echo "JavaScript syntax valid"
 
       - name: Sitemap XML validation
-        run: xmllint --noout sitemap.xml && echo "Sitemap XML valid"
+        run: python3 -c "import xml.etree.ElementTree as ET; ET.parse('sitemap.xml'); print('Sitemap XML valid')"
