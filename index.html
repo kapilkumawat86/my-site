@@ -29,6 +29,14 @@
   <link rel="apple-touch-icon" href="favicon.svg"/>
   <link rel="manifest" href="site.webmanifest"/>
   <meta name="theme-color" content="#8b2f2f"/>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNNQHN5C94"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BNNQHN5C94');
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1187,10 +1195,10 @@ ul { margin: 0; padding: 0; list-style: none; }
         <li><a href="#education" class="cv-nav-link"><span class="cv-nav-num">05</span><span>Education</span></a></li>
       </ul>
       <div class="cv-nav-actions">
-        <button class="cv-btn cv-btn-ghost" type="button" onclick="window.print()" aria-label="Save CV as PDF">
+        <a class="cv-btn cv-btn-ghost" href="Kapil-Kumawat-Resume.pdf" download="Kapil-Kumawat-Resume.pdf" aria-label="Download resume PDF">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span>Save CV</span>
-        </button>
+          <span>Download CV</span>
+        </a>
         <a class="cv-btn cv-btn-primary" href="mailto:erkapil2006@gmail.com?subject=Director%20%2F%20VP%20Engineering%20role">
           <span>Get in touch</span>
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>

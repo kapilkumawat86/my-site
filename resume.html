@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Kapil Kumawat — Sr. Director of Engineering</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm 16mm 16mm;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.5pt;
+      color: #1a1a1a;
+      line-height: 1.45;
+      background: #fff;
+    }
+
+    /* ── Header ── */
+    .r-header { margin-bottom: 10pt; border-bottom: 2pt solid #8b2f2f; padding-bottom: 8pt; }
+
+    .r-name {
+      font-family: Georgia, serif;
+      font-size: 26pt;
+      font-weight: bold;
+      color: #111;
+      letter-spacing: -0.5pt;
+      line-height: 1;
+    }
+
+    .r-title {
+      font-size: 12pt;
+      color: #8b2f2f;
+      font-weight: bold;
+      margin: 3pt 0 5pt;
+    }
+
+    .r-meta {
+      font-size: 8.5pt;
+      color: #444;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 12pt;
+    }
+
+    .r-meta span::before { content: ""; }
+
+    /* ── Section ── */
+    .r-section { margin-bottom: 8pt; break-inside: avoid; }
+
+    .r-section-head {
+      display: flex;
+      align-items: center;
+      background: #8b2f2f;
+      color: #fff;
+      padding: 4pt 8pt;
+      margin-bottom: 6pt;
+    }
+
+    .r-section-num {
+      font-size: 8pt;
+      font-weight: bold;
+      opacity: 0.75;
+      min-width: 20pt;
+      margin-right: 6pt;
+      border-right: 0.5pt solid rgba(255,255,255,0.3);
+      padding-right: 6pt;
+    }
+
+    .r-section-title {
+      font-family: Georgia, serif;
+      font-size: 10.5pt;
+      font-weight: bold;
+      letter-spacing: 0.1pt;
+    }
+
+    /* ── Bullets ── */
+    ul.r-bullets { list-style: none; padding: 0; display: grid; gap: 4pt; }
+
+    ul.r-bullets li {
+      position: relative;
+      padding-left: 10pt;
+      color: #222;
+      font-size: 9pt;
+      line-height: 1.5;
+    }
+
+    ul.r-bullets li::before {
+      content: "·";
+      position: absolute;
+      left: 2pt;
+      color: #8b2f2f;
+      font-size: 11pt;
+      line-height: 1.2;
+    }
+
+    strong { font-weight: bold; }
+    em { font-style: italic; }
+
+    /* ── Footer ── */
+    .r-footer {
+      margin-top: 10pt;
+      padding-top: 6pt;
+      border-top: 0.5pt solid #ccc;
+      font-size: 8pt;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="r-header">
+  <div class="r-name">Kapil Kumawat</div>
+  <div class="r-title">Senior Director of Engineering</div>
+  <div class="r-meta">
+    <span>17+ Years &nbsp;|&nbsp; B2B SaaS &nbsp;|&nbsp; Frontend Architecture &amp; Engineering Leadership &nbsp;|&nbsp; Jaipur, India</span>
+  </div>
+  <div class="r-meta" style="margin-top:3pt;">
+    <span>erkapil2006@gmail.com</span>
+    <span>linkedin.com/in/kapilkumawat1</span>
+    <span>kapilkumawat.in</span>
+  </div>
+</div>
+
+<div class="r-section">
+  <div class="r-section-head">
+    <span class="r-section-num">01</span>
+    <span class="r-section-title">Frontend Engineering Highlights</span>
+  </div>
+  <ul class="r-bullets">
+    <li>Architected a proprietary, extensible <strong>pipeline step framework</strong> at Harness using Abstract Factory design patterns during the 2020 full product rewrite — solving a critical QA bottleneck where any single step change triggered complete re-validation of all 65+ steps, each requiring 2 weeks of testing and recurring regression failures.</li>
+    <li>Designed each pipeline step as a fully isolated, independently manageable unit — enabling zero cross-step impact on change or addition, zero performance regression, and <strong>fewer than 10 bugs raised against the core framework</strong> across its entire lifetime.</li>
+    <li>Framework proved so robust that the <strong>core has remained unchanged for 6+ years</strong>, now supporting 500+ pipeline steps across Harness CD, CI, and Feature Flags — effectively becoming a proprietary internal standard at Harness.</li>
+    <li>Drove unit test automation from <strong>0% to 70% coverage</strong> at Harness as Staff Software Engineer — coaching the team on TDD and establishing a culture of test discipline that underpinned the entire platform rewrite.</li>
+  </ul>
+</div>
+
+<div class="r-section">
+  <div class="r-section-head">
+    <span class="r-section-num">02</span>
+    <span class="r-section-title">Building Products from Scratch</span>
+  </div>
+  <ul class="r-bullets">
+    <li>Led the complete ground-up rewrite of the <strong>Harness platform UI in 2020</strong> — architecting a new frontend designed to scale from a single CI/CD product to a unified multi-product platform spanning CD, CI, Feature Flags, and beyond.</li>
+    <li>Designed and built the <strong>core pipeline step framework, shared UI component library, custom router framework, and build system with quality controls</strong> — the foundational architecture on which the entire Harness frontend still operates today.</li>
+    <li>Engineered a <strong>proprietary string externalization framework</strong> for React using YAML, mustache.js templating, and TypeScript for full validation and autocomplete; enabling documentation teams to manage thousands of UI strings with zero developer intervention. Published on the Harness engineering blog.</li>
+    <li>Built a <strong>scalable tooltip framework</strong> with 1,500+ tooltips managed independently by the documentation team via a unique DOM node identification system and CI-driven npm package.</li>
+    <li>Delivered <strong>100% performant pipeline UI</strong> with zero performance regression across the rewrite, even as product surface expanded 4–5× in scope.</li>
+  </ul>
+</div>
+
+<div class="r-section">
+  <div class="r-section-head">
+    <span class="r-section-num">03</span>
+    <span class="r-section-title">Managing and Building Teams</span>
+  </div>
+  <ul class="r-bullets">
+    <li>Served as <strong>founding UI engineer in India</strong> at both ServiceNow (Performance Analytics BU) and AppDynamics (Cisco) — building the frontend engineering function from zero in each organisation, scaling to <strong>10+ developers within 9–12 months</strong> in both cases.</li>
+    <li>At Harness, joined as one of the first 7–8 UI engineers and grew into managing the <strong>entire global UI engineering organisation within 18–20 months</strong> — ultimately leading <strong>30+ frontend developers across 5 countries</strong> (Ireland, Serbia, US, Brazil, and Canada).</li>
+    <li>Built a reputation for <strong>re-recruiting proven talent</strong> — consistently identifying and rehiring engineers from previous teams, reducing hiring risk and accelerating team ramp-up.</li>
+    <li>Conducted <strong>thousands of technical interviews</strong> and developed a strong conviction that raw coding ability combined with learning agility is a stronger hiring signal than current framework knowledge.</li>
+    <li>Established a <strong>structured intern-to-engineer pipeline</strong> — daily 30-minute coaching sessions with milestone and goal-based progression — converting <strong>20+ interns at Harness</strong> and a further <strong>6+ at Goldcast</strong> into production-ready engineers.</li>
+  </ul>
+</div>
+
+<div class="r-section">
+  <div class="r-section-head">
+    <span class="r-section-num">04</span>
+    <span class="r-section-title">Client &amp; Customer Facing Experience</span>
+  </div>
+  <ul class="r-bullets">
+    <li>Served as <strong>engineering-side owner of all customer relationships</strong> at Goldcast for 18+ months — acting as the senior technical escalation point across the entire customer base, bridging engineering accountability with customer success outcomes.</li>
+    <li>Managed a critical escalation with one of the <strong>world's top financial institutions</strong> — when a platform issue during a live event forced the client to abandon Goldcast mid-event, personally de-escalated the situation and restored confidence with a clear recovery commitment.</li>
+    <li>Conducted a <strong>2-hour live technical session</strong> with the client the following day — resolved 2–3 outstanding demands in real time, delivered immediate fixes, and personally assumed full account ownership without deflecting blame onto the team.</li>
+    <li>Provided <strong>6 months of dedicated personal oversight</strong> — becoming the single point of engineering accountability, universally referred to within the company as <em>'Kapil's account.'</em></li>
+    <li>Outcome: the client <strong>renewed at 2× their previous contract value</strong> — a six-figure deal — driven entirely by trust rebuilt through hands-on technical leadership and consistent personal commitment.</li>
+  </ul>
+</div>
+
+<div class="r-section">
+  <div class="r-section-head">
+    <span class="r-section-num">05</span>
+    <span class="r-section-title">Working with Global Partners &amp; Leadership</span>
+  </div>
+  <ul class="r-bullets">
+    <li>During the 2020 Harness platform rewrite, conducted a <strong>6-hour live coding session over Zoom with Jyoti Bansal (CEO &amp; Co-founder, Harness)</strong> and the UX Head — starting at 11 PM — to prototype the first visual direction of the new platform. This session directly shaped the UI architecture and design language the product was built upon.</li>
+    <li>Operated seamlessly across <strong>Ireland, Serbia, US, Brazil, and Canada</strong> as engineering manager for Harness's global UI organisation — managing delivery, culture, and team development across significant time zone and cultural differences.</li>
+    <li>At Goldcast, became <strong>executive leadership's trusted partner for critical people retention</strong> — identified as the person best placed to engage and retain high-value engineers at risk of leaving through direct, honest conversations about career growth and long-term vision.</li>
+    <li>Demonstrated throughout career that <strong>engineering credibility and personal trust are inseparable</strong> — earning a level of access and confidence with CEOs, UX leadership, and global executives typically reserved for much larger organisational roles.</li>
+  </ul>
+</div>
+
+<div class="r-section">
+  <div class="r-section-head">
+    <span class="r-section-num">06</span>
+    <span class="r-section-title">Technology Innovations &amp; Revenue / Scale / Users</span>
+  </div>
+  <ul class="r-bullets">
+    <li>Contributed to <strong>Harness achieving 8× ARR scale</strong> during a 3.5-year tenure — joining as Principal/Staff Engineer and exiting as Senior Engineering Manager having helped architect the core platform supporting this growth.</li>
+    <li>Part of the Goldcast leadership team that drove strong revenue growth, culminating in a <strong>successful acquisition by Cvent</strong> — one of the world's leading event technology platforms.</li>
+    <li>Drove <strong>annual cost savings of $190K</strong> by migrating observability tooling across 6+ products from an incumbent vendor to Coralogix — executing the transition at roughly one-quarter of the previous cost ($60K vs $250K annually).</li>
+    <li>Delivered an additional <strong>$40K annual saving</strong> by migrating feature flag management from LaunchDarkly to Harness Feature Flags — identifying the opportunity, owning the migration, and eliminating redundant vendor cost.</li>
+    <li>Presented a <strong>formal annual cost and revenue impact review</strong> to leadership for 3 consecutive years — quantifying engineering's direct contribution to company P&amp;L through software savings, retained revenue, and deal enablement.</li>
+    <li>Became a <strong>trusted technical closer for the sales organisation</strong> — regularly engaged to unblock renewals and new acquisitions. Deals enabled include contracts with <strong>two of the top AI companies currently operating in the market.</strong></li>
+    <li>Personally accountable for <strong>retaining multiple six-figure customer contracts</strong> through hands-on engineering support and escalation management over an 18-month period.</li>
+  </ul>
+</div>
+
+<div class="r-section">
+  <div class="r-section-head">
+    <span class="r-section-num">07</span>
+    <span class="r-section-title">Coaching Senior Managers &amp; Succession Planning</span>
+  </div>
+  <ul class="r-bullets">
+    <li>Currently managing and developing <strong>3 engineering managers at Goldcast</strong> — owning their growth, decision-making frameworks, and leadership effectiveness as direct reports within the engineering organisation.</li>
+    <li>Successfully transitioned <strong>2 Individual Contributors to Engineering Managers at Goldcast</strong> — identifying leadership potential early, creating progressive ownership opportunities, and building team confidence in their authority. Both transitions were well received by their respective teams.</li>
+    <li>At Harness, identified and invested in <strong>Yunus AM</strong>, a Senior IC, as a future engineering leader — providing structured 1-year coaching on people management and leadership presence. Yunus went on to become <strong>UI Engineering Manager at SigNoz</strong>, successfully leading a large frontend team.</li>
+    <li>Established a consistent <strong>personal philosophy around leadership development</strong> — identifying slope over intercept, investing early in high-potential engineers regardless of current seniority, with a track record of people who outgrow their roles and go on to lead teams at scale.</li>
+    <li>Recognised internally at Goldcast as the <strong>go-to leader for people confidence and retention</strong> — trusted by executive leadership to step into sensitive conversations with engineers at risk, demonstrating that coaching extends beyond formal reporting lines.</li>
+  </ul>
+</div>
+
+<div class="r-footer">
+  Kapil Kumawat &nbsp;|&nbsp; Senior Director of Engineering &nbsp;|&nbsp; kapilkumawat.in &nbsp;|&nbsp; erkapil2006@gmail.com &nbsp;|&nbsp; May 2026
+</div>
+
+</body>
+</html>
