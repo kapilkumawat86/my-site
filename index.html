@@ -941,7 +941,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 @media (max-width: 640px) {
   .cv-nav-inner {
-    gap: 12px;
+    gap: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    grid-template-columns: auto auto;
+  }
+
+  .cv-nav-links {
+    display: none;
   }
 
   .cv-nav-actions .cv-btn-ghost {
@@ -1148,17 +1155,14 @@ ul { margin: 0; padding: 0; list-style: none; }
     box-shadow: none;
   }
 
-  .cv-job:not([open]) .cv-job-body {
-    display: block;
+  .cv-job .cv-job-body,
+  .cv-impact-area .cv-impact-body {
+    display: block !important;
   }
 
   .cv-impact-area {
     break-inside: avoid;
     box-shadow: none;
-  }
-
-  .cv-impact-area:not([open]) .cv-impact-body {
-    display: block;
   }
 
   .cv-impact-head {
@@ -1446,7 +1450,7 @@ ul { margin: 0; padding: 0; list-style: none; }
               <span class="cv-job-company">Goldcast</span>
               <span class="cv-job-summary"><span>Sr. Director of Engineering</span><span class="cv-job-more">+1 more</span></span>
             </span>
-            <span class="cv-job-range"><span class="cv-job-years">2023 - Present</span><span class="cv-job-dur">3 yrs 1 mo - Remote</span></span>
+            <span class="cv-job-range"><span class="cv-job-years">2023 - Present</span><span class="cv-job-dur">3 yrs 2 mos - Remote</span></span>
           </summary>
           <div class="cv-job-body">
             <div class="cv-role">
