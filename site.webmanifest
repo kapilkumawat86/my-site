@@ -4,8 +4,8 @@
   "description": "Sr. Director of Engineering — Kapil Kumawat",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#f8f4ed",
-  "theme_color": "#1c0f08",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
   "icons": [
     {
       "src": "favicon.svg",

@@ -28,7 +28,7 @@
   <link rel="shortcut icon" href="favicon.svg"/>
   <link rel="apple-touch-icon" href="favicon.svg"/>
   <link rel="manifest" href="site.webmanifest"/>
-  <meta name="theme-color" content="#8b2f2f"/>
+  <meta name="theme-color" content="#0f172a"/>
   <!-- Theme: apply saved preference before paint to avoid flash -->
   <script>try{var t=localStorage.getItem('cv-theme');if(t==='dark')document.documentElement.classList.add('theme-dark');if(t==='light')document.documentElement.classList.add('theme-light');}catch(e){}</script>
   <!-- Google Analytics -->
@@ -62,19 +62,20 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@700&display=swap&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
 :root {
-  --paper: #f7f5f0;
+  --paper: #f8fafc;
   --surface: #ffffff;
-  --surface-muted: #ede9df;
-  --ink: #17202a;
-  --ink-muted: #4b5563;
-  --ink-soft: #6b7280;
-  --accent: #8b2f2f;
-  --accent-2: #1f5f8b;
-  --rule: rgba(23, 32, 42, 0.14);
-  --rule-strong: rgba(23, 32, 42, 0.28);
+  --surface-muted: #f1f5f9;
+  --ink: #0f172a;
+  --ink-muted: #475569;
+  --ink-soft: #94a3b8;
+  --accent: #10b981;
+  --accent-2: #0ea5e9;
+  --accent-hover: #059669;
+  --rule: rgba(15, 23, 42, 0.12);
+  --rule-strong: rgba(15, 23, 42, 0.22);
   --container: 1180px;
   --gutter: clamp(18px, 4vw, 56px);
   --section-pad: clamp(56px, 7vw, 96px);
@@ -130,16 +131,54 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: "Space Grotesk", "Inter", sans-serif;
-  font-size: 14px;
-  font-weight: 700;
+  text-decoration: none;
 }
 
-.cv-mark-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
-  background: var(--accent);
+.cv-mark-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+
+.cv-nav-mark:hover .cv-mark-icon,
+.cv-nav-mark:focus-visible .cv-mark-icon {
+  border-color: var(--accent);
+}
+
+.cv-mark-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.cv-mark-domain {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.cv-mark-tld {
+  color: var(--accent);
+}
+
+.cv-mark-sub {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  line-height: 1;
 }
 
 .cv-nav-links {
@@ -151,26 +190,28 @@ ul { margin: 0; padding: 0; list-style: none; }
 .cv-nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 2px;
   padding: 8px 10px;
   border-radius: 6px;
   color: var(--ink-muted);
+  font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 400;
+}
+
+.cv-nav-path {
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .cv-nav-link:hover,
 .cv-nav-link:focus-visible {
-  background: rgba(139, 47, 47, 0.08);
+  background: rgba(16, 185, 129, 0.1);
   color: var(--accent);
   outline: none;
 }
 
-.cv-nav-num {
-  color: var(--ink-soft);
-  font-size: 10px;
-  font-weight: 700;
-}
+.cv-nav-num { display: none; }
 
 .cv-nav-actions,
 .cv-footer-actions {
@@ -201,7 +242,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .cv-btn-primary:hover,
 .cv-btn-primary:focus-visible {
-  background: #6f2525;
+  background: var(--accent-hover);
   outline: none;
 }
 
@@ -236,9 +277,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   gap: 8px;
   width: fit-content;
   padding: 7px 12px;
-  border: 1px solid rgba(139, 47, 47, 0.24);
+  border: 1px solid rgba(16, 185, 129, 0.28);
   border-radius: 999px;
-  background: rgba(139, 47, 47, 0.06);
+  background: rgba(16, 185, 129, 0.08);
   color: var(--accent);
   font-size: 11px;
   font-weight: 800;
@@ -552,8 +593,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .cv-job[open] {
-  border-color: rgba(139, 47, 47, 0.32);
-  box-shadow: 0 16px 36px rgba(23, 32, 42, 0.06);
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.07);
 }
 
 .cv-job-head {
@@ -571,7 +612,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .cv-job-head:hover,
 .cv-job-head:focus-visible {
-  background: rgba(139, 47, 47, 0.045);
+  background: rgba(16, 185, 129, 0.05);
   outline: none;
 }
 
@@ -1032,8 +1073,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .cv-impact-area[open] {
-  border-color: rgba(139, 47, 47, 0.32);
-  box-shadow: 0 16px 36px rgba(23, 32, 42, 0.06);
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.07);
 }
 
 .cv-impact-head {
@@ -1051,7 +1092,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .cv-impact-head:hover,
 .cv-impact-head:focus-visible {
-  background: #6f2525;
+  background: var(--accent-hover);
   outline: none;
 }
 
@@ -1089,36 +1130,38 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Auto dark: follows OS, suppressed when user forces light */
 @media (prefers-color-scheme: dark) {
   html:not(.theme-light) {
-    --paper: #111318;
-    --surface: #1a1e27;
-    --surface-muted: #22273a;
-    --ink: #edf0f5;
-    --ink-muted: #9ba8be;
-    --ink-soft: #6b7a9a;
-    --rule: rgba(237, 240, 245, 0.1);
-    --rule-strong: rgba(237, 240, 245, 0.2);
+    --paper: #0f172a;
+    --surface: #1e293b;
+    --surface-muted: #334155;
+    --ink: #f8fafc;
+    --ink-muted: #94a3b8;
+    --ink-soft: #64748b;
+    --accent-hover: #34d399;
+    --rule: rgba(248, 250, 252, 0.09);
+    --rule-strong: rgba(248, 250, 252, 0.18);
   }
-  html:not(.theme-light) .cv-nav { background: rgba(17, 19, 24, 0.94); }
-  html:not(.theme-light) .cv-portrait-card { background: rgba(26, 30, 39, 0.8); }
-  html:not(.theme-light) .cv-contact { background: rgba(26, 30, 39, 0.6); }
-  html:not(.theme-light) .cv-footer-band { background: #0a0c10; }
+  html:not(.theme-light) .cv-nav { background: rgba(15, 23, 42, 0.94); }
+  html:not(.theme-light) .cv-portrait-card { background: rgba(30, 41, 59, 0.85); }
+  html:not(.theme-light) .cv-contact { background: rgba(30, 41, 59, 0.6); }
+  html:not(.theme-light) .cv-footer-band { background: #080d1a; }
 }
 
 /* Forced dark: user toggled to dark regardless of OS */
 html.theme-dark {
-  --paper: #111318;
-  --surface: #1a1e27;
-  --surface-muted: #22273a;
-  --ink: #edf0f5;
-  --ink-muted: #9ba8be;
-  --ink-soft: #6b7a9a;
-  --rule: rgba(237, 240, 245, 0.1);
-  --rule-strong: rgba(237, 240, 245, 0.2);
+  --paper: #0f172a;
+  --surface: #1e293b;
+  --surface-muted: #334155;
+  --ink: #f8fafc;
+  --ink-muted: #94a3b8;
+  --ink-soft: #64748b;
+  --accent-hover: #34d399;
+  --rule: rgba(248, 250, 252, 0.09);
+  --rule-strong: rgba(248, 250, 252, 0.18);
 }
-html.theme-dark .cv-nav { background: rgba(17, 19, 24, 0.94); }
-html.theme-dark .cv-portrait-card { background: rgba(26, 30, 39, 0.8); }
-html.theme-dark .cv-contact { background: rgba(26, 30, 39, 0.6); }
-html.theme-dark .cv-footer-band { background: #0a0c10; }
+html.theme-dark .cv-nav { background: rgba(15, 23, 42, 0.94); }
+html.theme-dark .cv-portrait-card { background: rgba(30, 41, 59, 0.85); }
+html.theme-dark .cv-contact { background: rgba(30, 41, 59, 0.6); }
+html.theme-dark .cv-footer-band { background: #080d1a; }
 
 /* Theme toggle button */
 .cv-theme-btn {
@@ -1191,7 +1234,7 @@ html.theme-dark .cv-footer-band { background: #0a0c10; }
   }
 
   .cv-impact-head {
-    background: #8b2f2f !important;
+    background: #10b981 !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -1213,16 +1256,26 @@ html.theme-dark .cv-footer-band { background: #0a0c10; }
   <a href="#about" class="cv-skip-link">Skip to main content</a>
   <nav class="cv-nav" aria-label="Primary navigation">
     <div class="cv-nav-inner">
-      <a href="#top" class="cv-nav-mark">
-        <span class="cv-mark-dot" aria-hidden="true"></span>
-        <span>KK</span>
+      <a href="#top" class="cv-nav-mark" aria-label="kapilkumawat.in - home">
+        <div class="cv-mark-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="22" height="22">
+            <path d="M18 28 L44 50 L18 72" fill="none" stroke="#10B981" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="54" y1="72" x2="82" y2="72" stroke="#10B981" stroke-width="9" stroke-linecap="round"/>
+            <path d="M50 28 V50 Q50 62 64 62 H76" fill="none" stroke="#4B5563" stroke-width="4" stroke-dasharray="3 3"/>
+            <circle cx="76" cy="62" r="5" fill="#10B981"/>
+          </svg>
+        </div>
+        <div class="cv-mark-text">
+          <span class="cv-mark-domain">kapilkumawat<span class="cv-mark-tld">.in</span></span>
+          <span class="cv-mark-sub">Engineering &bull; Data &bull; AI</span>
+        </div>
       </a>
       <ul class="cv-nav-links">
-        <li><a href="#about" class="cv-nav-link"><span class="cv-nav-num">01</span><span>About</span></a></li>
-        <li><a href="#impact" class="cv-nav-link"><span class="cv-nav-num">02</span><span>Impact</span></a></li>
-        <li><a href="#experience" class="cv-nav-link"><span class="cv-nav-num">03</span><span>Experience</span></a></li>
-        <li><a href="#skills" class="cv-nav-link"><span class="cv-nav-num">04</span><span>Skills</span></a></li>
-        <li><a href="#education" class="cv-nav-link"><span class="cv-nav-num">05</span><span>Education</span></a></li>
+        <li><a href="#about" class="cv-nav-link"><span class="cv-nav-path">~/</span><span>about</span></a></li>
+        <li><a href="#impact" class="cv-nav-link"><span class="cv-nav-path">~/</span><span>impact</span></a></li>
+        <li><a href="#experience" class="cv-nav-link"><span class="cv-nav-path">~/</span><span>experience</span></a></li>
+        <li><a href="#skills" class="cv-nav-link"><span class="cv-nav-path">~/</span><span>skills</span></a></li>
+        <li><a href="#education" class="cv-nav-link"><span class="cv-nav-path">~/</span><span>education</span></a></li>
       </ul>
       <div class="cv-nav-actions">
         <button type="button" id="cv-theme-btn" class="cv-theme-btn" aria-label="Switch colour theme (current: auto)">
