@@ -104,6 +104,45 @@
       font-size: 7pt;
     }
 
+    /* ── Coverage bars ── */
+    .r-cov {
+      margin-top: 5pt;
+      padding-top: 4pt;
+      border-top: 0.5pt solid #d1fae5;
+    }
+    .r-cov-label {
+      font-size: 6.5pt;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 3pt;
+    }
+    .r-cov-row {
+      display: flex;
+      align-items: center;
+      gap: 5pt;
+    }
+    .r-cov-track {
+      flex: 1;
+      height: 4pt;
+      background: #e2e8f0;
+      border-radius: 99pt;
+      overflow: hidden;
+    }
+    .r-cov-fill {
+      height: 100%;
+      background: #10b981;
+      border-radius: 99pt;
+    }
+    .r-cov-pct {
+      font-size: 7pt;
+      font-weight: bold;
+      color: #047857;
+      min-width: 36pt;
+      text-align: right;
+    }
+
     /* ── Section ── */
     .r-section { margin-bottom: 7pt; break-inside: avoid; }
 
@@ -217,19 +256,31 @@
     <div class="r-outcome-range">Staff Engineer → Senior Engineering Manager</div>
     <ul>
       <li>Founding team → 30+ engineers globally in under 18 months</li>
-      <li>0% → 70% test coverage; established TDD culture for full platform rewrite</li>
       <li>Pipeline step framework: 500+ steps, core unchanged for 6+ years</li>
     </ul>
+    <div class="r-cov">
+      <div class="r-cov-label">Test coverage</div>
+      <div class="r-cov-row">
+        <div class="r-cov-track"><div class="r-cov-fill" style="width:70%"></div></div>
+        <span class="r-cov-pct">0% → 70%</span>
+      </div>
+    </div>
   </div>
   <div class="r-outcome">
     <div class="r-outcome-co">Goldcast → Cvent &nbsp;·&nbsp; 2023–2026</div>
     <div class="r-outcome-range">Senior Director of Engineering</div>
     <ul>
       <li>Developed 3 EMs; transitioned 2 ICs into engineering manager roles</li>
-      <li>0% → 80% test coverage across all products via CI/CD improvements</li>
       <li>Rebuilt vendor feature using 22 AI agents — 90% coverage, under $200</li>
       <li>2× contract renewal through direct technical escalation leadership</li>
     </ul>
+    <div class="r-cov">
+      <div class="r-cov-label">Test coverage</div>
+      <div class="r-cov-row">
+        <div class="r-cov-track"><div class="r-cov-fill" style="width:80%"></div></div>
+        <span class="r-cov-pct">0% → 80%</span>
+      </div>
+    </div>
   </div>
   <div class="r-outcome">
     <div class="r-outcome-co">ServiceNow &amp; AppDynamics &nbsp;·&nbsp; 2016–2020</div>
@@ -237,8 +288,14 @@
     <ul>
       <li>Built India engineering function from zero at both companies</li>
       <li>Scaled each team to 10+ developers within 9–12 months</li>
-      <li>0% → 80% test coverage at both organisations via CI/CD</li>
     </ul>
+    <div class="r-cov">
+      <div class="r-cov-label">Test coverage</div>
+      <div class="r-cov-row">
+        <div class="r-cov-track"><div class="r-cov-fill" style="width:80%"></div></div>
+        <span class="r-cov-pct">0% → 80%</span>
+      </div>
+    </div>
   </div>
 </div>
 

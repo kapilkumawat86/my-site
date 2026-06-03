@@ -1320,6 +1320,9 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
     box-shadow: none;
   }
 
+  .cv-career-timeline { display: none; }
+  .cv-cov-fill { width: var(--cov-pct, 70%) !important; transition: none !important; }
+
   .cv-job .cv-job-body,
   .cv-impact-area .cv-impact-body {
     display: block !important;
@@ -1667,7 +1670,7 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
           <div class="cv-cov">
             <div class="cv-cov-label">Test coverage</div>
             <div class="cv-cov-row">
-              <div class="cv-cov-track"><div class="cv-cov-fill" data-pct="70%"></div></div>
+              <div class="cv-cov-track"><div class="cv-cov-fill" data-pct="70%" style="--cov-pct:70%"></div></div>
               <span class="cv-cov-pct">0 → 70%</span>
             </div>
           </div>
@@ -1684,7 +1687,7 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
           <div class="cv-cov">
             <div class="cv-cov-label">Test coverage</div>
             <div class="cv-cov-row">
-              <div class="cv-cov-track"><div class="cv-cov-fill" data-pct="80%"></div></div>
+              <div class="cv-cov-track"><div class="cv-cov-fill" data-pct="80%" style="--cov-pct:80%"></div></div>
               <span class="cv-cov-pct">0 → 80%</span>
             </div>
           </div>
@@ -1700,7 +1703,7 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
           <div class="cv-cov">
             <div class="cv-cov-label">Test coverage</div>
             <div class="cv-cov-row">
-              <div class="cv-cov-track"><div class="cv-cov-fill" data-pct="80%"></div></div>
+              <div class="cv-cov-track"><div class="cv-cov-fill" data-pct="80%" style="--cov-pct:80%"></div></div>
               <span class="cv-cov-pct">0 → 80%</span>
             </div>
           </div>
