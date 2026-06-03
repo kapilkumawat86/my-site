@@ -380,6 +380,35 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: var(--accent);
 }
 
+.cv-scope-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 22px 0 28px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 330px;
+  background: var(--surface);
+}
+.cv-scope-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 16px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 13px;
+}
+.cv-scope-row:last-child { border-bottom: none; }
+.cv-scope-k { color: var(--ink-muted); }
+.cv-scope-v {
+  font-weight: 700;
+  color: var(--accent-text);
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  letter-spacing: -0.01em;
+}
+
 .cv-hero-footer { margin-top: 28px; }
 .cv-hero-download { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 
@@ -1377,6 +1406,13 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
           <h1 class="cv-name">Kapil Kumawat</h1>
           <p class="cv-title-line">Sr. Director of Engineering</p>
           <p class="cv-tagline">Engineering leadership for B2B SaaS scale.</p>
+          <div class="cv-scope-strip" aria-label="Leadership scope">
+            <div class="cv-scope-row"><span class="cv-scope-k">Experience</span><span class="cv-scope-v">17+ years</span></div>
+            <div class="cv-scope-row"><span class="cv-scope-k">Engineers led</span><span class="cv-scope-v">30+</span></div>
+            <div class="cv-scope-row"><span class="cv-scope-k">Managers developed</span><span class="cv-scope-v">5+</span></div>
+            <div class="cv-scope-row"><span class="cv-scope-k">Interns converted to engineers</span><span class="cv-scope-v">26+</span></div>
+            <div class="cv-scope-row"><span class="cv-scope-k">Teams built from zero</span><span class="cv-scope-v">3</span></div>
+          </div>
           <ul class="cv-proof-list">
             <li>Architected the Harness platform frontend from scratch — a 500+ step pipeline framework unchanged for 6+ years, underpinning 8× ARR growth across the company's highest-revenue phase.</li>
             <li>Led Goldcast engineering through acquisition by Cvent; drove significant annual engineering cost savings across multiple initiatives; personally rescued a six-figure client contract.</li>
@@ -1839,12 +1875,12 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
     <div class="cv-footer-inner">
       <div class="cv-footer-grid">
         <div class="cv-footer-cta">
-          <div class="cv-footer-kicker">Let's talk</div>
-          <h2 class="cv-footer-h">Director / VP of Engineering leadership for teams ready to scale.</h2>
-          <p class="cv-footer-p">I work best with B2B SaaS teams that need stronger engineering systems, clearer ownership, and reliable delivery as the organization grows.</p>
+          <div class="cv-footer-kicker">Open to new opportunities</div>
+          <h2 class="cv-footer-h">Let's discuss scaling your engineering organization.</h2>
+          <p class="cv-footer-p">If you're building a B2B SaaS company between Series B and Series D and need an engineering leader who can grow teams, develop managers, and ship reliably — I'd love a conversation.</p>
           <div class="cv-footer-actions">
-            <!--email_off--><a class="cv-btn cv-btn-primary" href="mailto:erkapil2006@gmail.com?subject=Director%20%2F%20VP%20Engineering%20role"><span>erkapil2006@gmail.com</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><!--/email_off-->
-            <a class="cv-btn cv-btn-ghost" href="https://www.linkedin.com/in/kapilkumawat1" target="_blank" rel="noreferrer">LinkedIn</a>
+            <!--email_off--><a class="cv-btn cv-btn-primary" href="mailto:erkapil2006@gmail.com?subject=VP%20%2F%20Head%20of%20Engineering%20conversation"><span>Schedule a conversation</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><!--/email_off-->
+            <a class="cv-btn cv-btn-ghost" href="https://www.linkedin.com/in/kapilkumawat1" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
           </div>
         </div>
         <div class="cv-footer-meta">
@@ -1859,8 +1895,8 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
       </div>
       <div class="cv-colophon">
         <span>© 2026 Kapil Kumawat</span>
-        <span>Director / VP of Engineering - Available now</span>
-        <span>May 2026</span>
+        <span>VP / Head of Engineering — Available now</span>
+        <span>June 2026</span>
       </div>
     </div>
   </footer>
