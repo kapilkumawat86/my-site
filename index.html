@@ -595,6 +595,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--rule);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.54);
+  display: flex;
+  flex-direction: column;
 }
 
 .cv-principle-k {
@@ -1318,6 +1320,9 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
     box-shadow: none;
   }
 
+  .cv-career-timeline { display: none; }
+  .cv-cov-fill { width: var(--cov-pct, 70%) !important; transition: none !important; }
+
   .cv-job .cv-job-body,
   .cv-impact-area .cv-impact-body {
     display: block !important;
@@ -1345,6 +1350,173 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
     color: #333;
   }
 }
+
+/* ── Career timeline ─────────────────────────────────── */
+.cv-career-timeline {
+  position: relative;
+  display: flex;
+  gap: 0;
+  margin: 0 0 48px;
+  padding: 44px 0 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.cv-career-timeline::-webkit-scrollbar { display: none; }
+.cv-career-timeline::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent) 5%, var(--accent) 95%, transparent 100%);
+  opacity: 0.35;
+}
+.cv-tl-item {
+  flex: 1;
+  min-width: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+.cv-tl-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+  position: absolute;
+  top: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.cv-tl-item.cv-tl-current .cv-tl-dot {
+  width: 14px;
+  height: 14px;
+  top: -40px;
+  box-shadow: 0 0 0 4px rgba(16,185,129,0.2);
+}
+.cv-tl-co {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.cv-tl-item.cv-tl-current .cv-tl-co { color: var(--accent-text); }
+.cv-tl-year {
+  font-size: 11px;
+  color: var(--ink-muted);
+  margin-top: 3px;
+  font-family: "JetBrains Mono", monospace;
+}
+.cv-tl-role {
+  font-size: 10.5px;
+  color: var(--ink-soft);
+  margin-top: 3px;
+  line-height: 1.3;
+}
+
+/* ── Coverage progress bars ─────────────────────────── */
+.cv-cov {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+.cv-cov-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 10px;
+}
+.cv-cov-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.cv-cov-row:last-child { margin-bottom: 0; }
+.cv-cov-track {
+  height: 6px;
+  background: var(--rule);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.cv-cov-fill {
+  height: 100%;
+  background: linear-gradient(90deg, rgba(16,185,129,0.5), #10b981);
+  border-radius: 999px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cv-cov-pct {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-text);
+  font-family: "JetBrains Mono", monospace;
+  min-width: 32px;
+  text-align: right;
+}
+
+/* ── Principle icons ─────────────────────────────────── */
+.cv-principle {
+  position: relative;
+}
+.cv-principle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(16,185,129,0.1);
+  border-radius: 8px;
+  margin-bottom: 14px;
+  color: var(--accent-text);
+  flex-shrink: 0;
+}
+.cv-principle-icon svg { display: block; }
+
+/* ── Skill pills ─────────────────────────────────────── */
+.cv-skill-group-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(16,185,129,0.1);
+  border-radius: 8px;
+  color: var(--accent-text);
+  flex-shrink: 0;
+}
+.cv-skill-group-head-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cv-skill-list {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cv-skill {
+  padding: 5px 12px !important;
+  background: var(--surface-muted) !important;
+  border: 1px solid var(--rule) !important;
+  border-radius: 999px !important;
+  font-size: 13px !important;
+  color: var(--ink) !important;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.cv-skill::before { display: none !important; }
   </style>
 </head>
 <body>
@@ -1495,6 +1667,13 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
             <li>Drove test coverage from 0% to 70% — established TDD culture underpinning a full platform rewrite</li>
             <li>Built pipeline step framework supporting 500+ steps across CD, CI &amp; Feature Flags — core unchanged for 6+ years</li>
           </ul>
+          <div class="cv-cov">
+            <div class="cv-cov-label">Test coverage</div>
+            <div class="cv-cov-row">
+              <div class="cv-cov-track"><div class="cv-cov-fill" data-pct="70%" style="--cov-pct:70%"></div></div>
+              <span class="cv-cov-pct">0 → 70%</span>
+            </div>
+          </div>
         </div>
         <div class="cv-outcome">
           <div class="cv-outcome-co">Goldcast → Cvent</div>
@@ -1505,6 +1684,13 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
             <li>Rebuilt vendor feature in-house using 22 AI agents — 90% test coverage, under $200 build cost</li>
             <li>Retained multiple enterprise accounts through direct technical leadership, including a 2× contract renewal</li>
           </ul>
+          <div class="cv-cov">
+            <div class="cv-cov-label">Test coverage</div>
+            <div class="cv-cov-row">
+              <div class="cv-cov-track"><div class="cv-cov-fill" data-pct="80%" style="--cov-pct:80%"></div></div>
+              <span class="cv-cov-pct">0 → 80%</span>
+            </div>
+          </div>
         </div>
         <div class="cv-outcome">
           <div class="cv-outcome-co">ServiceNow &amp; AppDynamics</div>
@@ -1514,15 +1700,40 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
             <li>Drove test coverage from 0% to 80% at both organisations through CI/CD pipeline improvements</li>
             <li>Delivered production analytics and monitoring UI features used by global enterprise customers</li>
           </ul>
+          <div class="cv-cov">
+            <div class="cv-cov-label">Test coverage</div>
+            <div class="cv-cov-row">
+              <div class="cv-cov-track"><div class="cv-cov-fill" data-pct="80%" style="--cov-pct:80%"></div></div>
+              <span class="cv-cov-pct">0 → 80%</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="cv-principles">
-        <div class="cv-principle"><span class="cv-principle-k">Leadership is multiplication, not control</span><span class="cv-principle-v">Your job is to make 10 people 10× more effective — not to make all 10 decisions. Control is a ceiling. Multiplication is limitless.</span></div>
-        <div class="cv-principle"><span class="cv-principle-k">Build systems that outlast individuals</span><span class="cv-principle-v">The pipeline framework I built in 2020 runs unchanged today across 500+ steps. Architecture that scales beyond its author is the real goal.</span></div>
-        <div class="cv-principle"><span class="cv-principle-k">Customer value drives business value</span><span class="cv-principle-v">Revenue, growth, and shareholder returns are downstream of consistently solving customer problems. Start there — everything else follows.</span></div>
-        <div class="cv-principle"><span class="cv-principle-k">Ownership requires empowerment</span><span class="cv-principle-v">Push decisions to the people closest to the work. Accountability without authority is frustration. Authority without accountability is chaos.</span></div>
-        <div class="cv-principle"><span class="cv-principle-k">Leaders create more leaders</span><span class="cv-principle-v">A leader's success is measured by the leaders they develop, not by the decisions they make. Delegation, candid feedback, and stretch opportunities are the work.</span></div>
-        <div class="cv-principle"><span class="cv-principle-k">Hire for slope, coach for intercept</span><span class="cv-principle-v">Current skill level tells you where someone is. Learning velocity tells you where they will go. Bet on trajectory, not starting point.</span></div>
+        <div class="cv-principle">
+          <div class="cv-principle-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M2 12h20M5.636 5.636l12.728 12.728M18.364 5.636 5.636 18.364"/></svg></div>
+          <span class="cv-principle-k">Leadership is multiplication, not control</span><span class="cv-principle-v">Your job is to make 10 people 10× more effective — not to make all 10 decisions. Control is a ceiling. Multiplication is limitless.</span>
+        </div>
+        <div class="cv-principle">
+          <div class="cv-principle-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+          <span class="cv-principle-k">Build systems that outlast individuals</span><span class="cv-principle-v">The pipeline framework I built in 2020 runs unchanged today across 500+ steps. Architecture that scales beyond its author is the real goal.</span>
+        </div>
+        <div class="cv-principle">
+          <div class="cv-principle-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/><path d="M12 12h.01"/><path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/><path d="M7 17v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-2"/></svg></div>
+          <span class="cv-principle-k">Customer value drives business value</span><span class="cv-principle-v">Revenue, growth, and shareholder returns are downstream of consistently solving customer problems. Start there — everything else follows.</span>
+        </div>
+        <div class="cv-principle">
+          <div class="cv-principle-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg></div>
+          <span class="cv-principle-k">Ownership requires empowerment</span><span class="cv-principle-v">Push decisions to the people closest to the work. Accountability without authority is frustration. Authority without accountability is chaos.</span>
+        </div>
+        <div class="cv-principle">
+          <div class="cv-principle-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <span class="cv-principle-k">Leaders create more leaders</span><span class="cv-principle-v">A leader's success is measured by the leaders they develop, not by the decisions they make. Delegation, candid feedback, and stretch opportunities are the work.</span>
+        </div>
+        <div class="cv-principle">
+          <div class="cv-principle-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+          <span class="cv-principle-k">Hire for slope, coach for intercept</span><span class="cv-principle-v">Current skill level tells you where someone is. Learning velocity tells you where they will go. Bet on trajectory, not starting point.</span>
+        </div>
       </div>
     </section>
 
@@ -1660,6 +1871,44 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
           <p class="cv-section-caption">Engineering leadership from IC to Sr. Director</p>
         </div>
       </div>
+      <div class="cv-career-timeline" aria-label="Career progression timeline">
+        <div class="cv-tl-item">
+          <div class="cv-tl-dot"></div>
+          <div class="cv-tl-co">Syntel / CA Tech</div>
+          <div class="cv-tl-year">2008–2015</div>
+          <div class="cv-tl-role">Individual Contributor</div>
+        </div>
+        <div class="cv-tl-item">
+          <div class="cv-tl-dot"></div>
+          <div class="cv-tl-co">Pegasystems</div>
+          <div class="cv-tl-year">2015–2016</div>
+          <div class="cv-tl-role">Solutions Engineer</div>
+        </div>
+        <div class="cv-tl-item">
+          <div class="cv-tl-dot"></div>
+          <div class="cv-tl-co">ServiceNow</div>
+          <div class="cv-tl-year">2016–2018</div>
+          <div class="cv-tl-role">Lead · 10+ engineers</div>
+        </div>
+        <div class="cv-tl-item">
+          <div class="cv-tl-dot"></div>
+          <div class="cv-tl-co">AppDynamics</div>
+          <div class="cv-tl-year">2018–2019</div>
+          <div class="cv-tl-role">Tech Lead · 10+ engineers</div>
+        </div>
+        <div class="cv-tl-item">
+          <div class="cv-tl-dot"></div>
+          <div class="cv-tl-co">Harness</div>
+          <div class="cv-tl-year">2019–2023</div>
+          <div class="cv-tl-role">Staff → Sr. EM · 30+ engineers</div>
+        </div>
+        <div class="cv-tl-item cv-tl-current">
+          <div class="cv-tl-dot"></div>
+          <div class="cv-tl-co">Goldcast → Cvent</div>
+          <div class="cv-tl-year">2023–present</div>
+          <div class="cv-tl-role">Sr. Director · 30+ engineers</div>
+        </div>
+      </div>
       <div class="cv-jobs">
         <details class="cv-job" open>
           <summary class="cv-job-head">
@@ -1794,15 +2043,33 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
       </div>
       <div class="cv-skills">
         <div class="cv-skill-group">
-          <div class="cv-skill-group-head"><span class="cv-skill-group-name">Leadership</span><span class="cv-skill-group-count">6</span></div>
+          <div class="cv-skill-group-head">
+            <div class="cv-skill-group-head-inner">
+              <div class="cv-skill-group-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <span class="cv-skill-group-name">Leadership</span>
+            </div>
+            <span class="cv-skill-group-count">6</span>
+          </div>
           <ul class="cv-skill-list"><li class="cv-skill">Engineering strategy</li><li class="cv-skill">Org scaling &amp; hiring</li><li class="cv-skill">Budget &amp; P&amp;L</li><li class="cv-skill">Technical mentorship</li><li class="cv-skill">Cross-functional partnership</li><li class="cv-skill">Distributed teams</li></ul>
         </div>
         <div class="cv-skill-group">
-          <div class="cv-skill-group-head"><span class="cv-skill-group-name">Platform</span><span class="cv-skill-group-count">6</span></div>
+          <div class="cv-skill-group-head">
+            <div class="cv-skill-group-head-inner">
+              <div class="cv-skill-group-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+              <span class="cv-skill-group-name">Platform</span>
+            </div>
+            <span class="cv-skill-group-count">6</span>
+          </div>
           <ul class="cv-skill-list"><li class="cv-skill">CI/CD pipelines</li><li class="cv-skill">DevOps</li><li class="cv-skill">Test strategy &amp; TDD</li><li class="cv-skill">Release management</li><li class="cv-skill">System architecture</li><li class="cv-skill">Observability</li></ul>
         </div>
         <div class="cv-skill-group">
-          <div class="cv-skill-group-head"><span class="cv-skill-group-name">Engineering</span><span class="cv-skill-group-count">6</span></div>
+          <div class="cv-skill-group-head">
+            <div class="cv-skill-group-head-inner">
+              <div class="cv-skill-group-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+              <span class="cv-skill-group-name">Engineering</span>
+            </div>
+            <span class="cv-skill-group-count">6</span>
+          </div>
           <ul class="cv-skill-list"><li class="cv-skill">Front-end architecture</li><li class="cv-skill">Angular / React</li><li class="cv-skill">Component libraries</li><li class="cv-skill">Build systems</li><li class="cv-skill">Performance</li><li class="cv-skill">D3 / data viz</li></ul>
         </div>
       </div>
@@ -1945,6 +2212,25 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
       updateButton(current);
     });
   });
+})();
+</script>
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.cv-cov-fill').forEach(function (el) {
+      el.style.width = el.dataset.pct || '0%';
+    });
+    return;
+  }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var fills = entry.target.querySelectorAll('.cv-cov-fill');
+      fills.forEach(function (fill) { fill.style.width = fill.dataset.pct || '0%'; });
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.cv-cov').forEach(function (el) { obs.observe(el); });
 })();
 </script>
 </body>
