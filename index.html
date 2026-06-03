@@ -556,7 +556,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .cv-principles {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   margin-top: 34px;
 }
@@ -583,6 +583,60 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 16px;
   font-weight: 700;
   line-height: 1.35;
+}
+
+.cv-outcomes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.cv-outcome {
+  padding: 22px;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  background: rgba(16,185,129,0.04);
+}
+
+.cv-outcome-co {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.cv-outcome-range {
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin: 3px 0 14px;
+}
+
+.cv-outcome ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.cv-outcome li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 13px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.cv-outcome li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent-text);
+  font-size: 11px;
+  top: 1px;
 }
 
 .cv-jobs {
@@ -1031,6 +1085,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   }
 
   .cv-metrics,
+  .cv-outcomes,
   .cv-principles,
   .cv-skills,
   .cv-edu-grid {
@@ -1395,16 +1450,43 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
           <p>Hands-on background. I still read the code. I still ask the hard questions. I still care about the details that never make it into the roadmap.</p>
         </div>
       </div>
+      <div class="cv-outcomes">
+        <div class="cv-outcome">
+          <div class="cv-outcome-co">Harness</div>
+          <div class="cv-outcome-range">2020 – 2023 · Staff Engineer → Senior Engineering Manager</div>
+          <ul>
+            <li>Grew from founding team member to leading 30+ frontend engineers globally in under 18 months</li>
+            <li>Drove test coverage from 0% to 70% — established TDD culture underpinning a full platform rewrite</li>
+            <li>Built pipeline step framework supporting 500+ steps across CD, CI &amp; Feature Flags — core unchanged for 6+ years</li>
+          </ul>
+        </div>
+        <div class="cv-outcome">
+          <div class="cv-outcome-co">Goldcast → Cvent</div>
+          <div class="cv-outcome-range">2023 – 2026 · Senior Director of Engineering</div>
+          <ul>
+            <li>Developed 3 engineering managers; transitioned 2 ICs into EM roles</li>
+            <li>Improved test coverage from 0% to 80% across all products through CI/CD and quality system improvements</li>
+            <li>Rebuilt vendor feature in-house using 22 AI agents — 90% test coverage, under $200 build cost</li>
+            <li>Retained multiple enterprise accounts through direct technical leadership, including a 2× contract renewal</li>
+          </ul>
+        </div>
+        <div class="cv-outcome">
+          <div class="cv-outcome-co">ServiceNow &amp; AppDynamics</div>
+          <div class="cv-outcome-range">2016 – 2020 · Founding India Engineer</div>
+          <ul>
+            <li>Built India engineering function from zero at both companies, scaling each to 10+ developers within 9–12 months</li>
+            <li>Drove test coverage from 0% to 80% at both organisations through CI/CD pipeline improvements</li>
+            <li>Delivered production analytics and monitoring UI features used by global enterprise customers</li>
+          </ul>
+        </div>
+      </div>
       <div class="cv-principles">
-        <div class="cv-principle"><span class="cv-principle-k">Build People, Not Just Products</span><span class="cv-principle-v">My primary responsibility is creating the environment where talented people do the best work of their careers. Great products follow great teams.</span></div>
-        <div class="cv-principle"><span class="cv-principle-k">Customer Success Drives Everything</span><span class="cv-principle-v">When facing difficult decisions, I ask: will this improve the customer's experience and increase their confidence in us? That is the filter.</span></div>
-        <div class="cv-principle"><span class="cv-principle-k">Ownership with Empowerment</span><span class="cv-principle-v">Push decisions to the people closest to the work. Accountability without authority creates frustration. Authority without accountability creates chaos.</span></div>
-        <div class="cv-principle"><span class="cv-principle-k">Leaders Create More Leaders</span><span class="cv-principle-v">A leader's success is measured by the leaders they develop — through meaningful delegation, candid feedback, and stretch opportunities.</span></div>
-        <div class="cv-principle"><span class="cv-principle-k">Transparency Builds Trust</span><span class="cv-principle-v">People can handle difficult news. What they struggle with is uncertainty. Share information openly and address challenges early and directly.</span></div>
-        <div class="cv-principle"><span class="cv-principle-k">Data Informs, Judgment Decides</span><span class="cv-principle-v">Data provides visibility into reality. Leadership cannot be reduced to dashboards alone. Combine data, experience, context, and long-term thinking.</span></div>
-        <div class="cv-principle"><span class="cv-principle-k">Improvement Over Perfection</span><span class="cv-principle-v">Deliver value early, learn quickly, improve continuously. This applies to products, processes, teams, and leadership. Small improvements compound into extraordinary results.</span></div>
-        <div class="cv-principle"><span class="cv-principle-k">Sustainable High Performance</span><span class="cv-principle-v">High performance is not built through burnout. Build teams that deliver consistently year after year — not just in moments of crisis.</span></div>
-        <div class="cv-principle"><span class="cv-principle-k">Courage with Discipline</span><span class="cv-principle-v">Innovation requires calculated risk. Whether adopting AI, rebuilding systems, or entering new markets, progress comes from balancing courage with discipline.</span></div>
+        <div class="cv-principle"><span class="cv-principle-k">Leadership is multiplication, not control</span><span class="cv-principle-v">Your job is to make 10 people 10× more effective — not to make all 10 decisions. Control is a ceiling. Multiplication is limitless.</span></div>
+        <div class="cv-principle"><span class="cv-principle-k">Build systems that outlast individuals</span><span class="cv-principle-v">The pipeline framework I built in 2020 runs unchanged today across 500+ steps. Architecture that scales beyond its author is the real goal.</span></div>
+        <div class="cv-principle"><span class="cv-principle-k">Customer value drives business value</span><span class="cv-principle-v">Revenue, growth, and shareholder returns are downstream of consistently solving customer problems. Start there — everything else follows.</span></div>
+        <div class="cv-principle"><span class="cv-principle-k">Ownership requires empowerment</span><span class="cv-principle-v">Push decisions to the people closest to the work. Accountability without authority is frustration. Authority without accountability is chaos.</span></div>
+        <div class="cv-principle"><span class="cv-principle-k">Leaders create more leaders</span><span class="cv-principle-v">A leader's success is measured by the leaders they develop, not by the decisions they make. Delegation, candid feedback, and stretch opportunities are the work.</span></div>
+        <div class="cv-principle"><span class="cv-principle-k">Hire for slope, coach for intercept</span><span class="cv-principle-v">Current skill level tells you where someone is. Learning velocity tells you where they will go. Bet on trajectory, not starting point.</span></div>
       </div>
     </section>
 
