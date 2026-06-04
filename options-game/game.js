@@ -251,7 +251,7 @@ function drawPayoff() {
   if (!cv) return;
   const ctx = cv.getContext('2d');
   cv.width = cv.clientWidth;
-  cv.height = 240;
+  cv.height = Math.max(220, cv.clientHeight || 240);
   ctx.clearRect(0, 0, cv.width, cv.height);
 
   ctx.strokeStyle = 'rgba(255,255,255,.25)';
@@ -364,8 +364,10 @@ function renderLabs() {
           <option value='choppy'>Choppy</option>
           <option value='event'>Event Shock</option>
         </select>
-        <button class='btn' onclick='resetMarket()' type='button'>Set Regime</button>
-        <button class='btn good' onclick='marketStep()' type='button'>Next Candle</button>
+        <div class='actionGroup'>
+          <button class='btn' onclick='resetMarket()' type='button'>Set Regime</button>
+          <button class='btn good' onclick='marketStep()' type='button'>Next Candle</button>
+        </div>
         <div class='terminal' aria-live='polite'>Day ${state.market.day}
 Spot ${state.market.spot}
 IV ${state.market.iv}%
@@ -381,22 +383,28 @@ Regime ${state.market.regime}</div>
           <option value='ironCondor'>Iron Condor</option>
           <option value='calendar'>Calendar / DC</option>
         </select>
-        <button class='btn' onclick='buildStrategy()' type='button'>Build</button>
+        <div class='actionGroup'>
+          <button class='btn' onclick='buildStrategy()' type='button'>Build</button>
+        </div>
         <div class='terminal' id='strategyBox' aria-live='polite'>Choose a strategy.</div>
       </div>
       <div class='box'>
         <b>Expiry Day Simulator</b>
         <p>Respond to gamma whipsaw.</p>
-        <button class='btn secondary' onclick="expiryShock('hold')"   type='button' aria-label='Hold the position'>Hold</button>
-        <button class='btn secondary' onclick="expiryShock('hedge')"  type='button' aria-label='Hedge the position'>Hedge</button>
-        <button class='btn secondary' onclick="expiryShock('reduce')" type='button' aria-label='Reduce position size'>Reduce</button>
-        <button class='btn secondary' onclick="expiryShock('exit')"   type='button' aria-label='Exit the position'>Exit</button>
+        <div class='actionGroup'>
+          <button class='btn secondary' onclick="expiryShock('hold')"   type='button' aria-label='Hold the position'>Hold</button>
+          <button class='btn secondary' onclick="expiryShock('hedge')"  type='button' aria-label='Hedge the position'>Hedge</button>
+          <button class='btn secondary' onclick="expiryShock('reduce')" type='button' aria-label='Reduce position size'>Reduce</button>
+          <button class='btn secondary' onclick="expiryShock('exit')"   type='button' aria-label='Exit the position'>Exit</button>
+        </div>
         <div class='terminal' id='expiryBox' aria-live='polite'>Choose action.</div>
       </div>
       <div class='box'>
         <b>AI Mentor Hint</b>
         <p>Get regime-based guidance.</p>
-        <button class='btn warn' onclick='mentorHint()' type='button' aria-label='Ask mentor for guidance'>Ask Mentor</button>
+        <div class='actionGroup'>
+          <button class='btn warn' onclick='mentorHint()' type='button' aria-label='Ask mentor for guidance'>Ask Mentor</button>
+        </div>
         <div class='terminal' id='mentorBox' aria-live='polite'>Mentor waiting.</div>
       </div>
     </div>
@@ -417,10 +425,12 @@ function renderGame() {
   $('game').innerHTML = `
     <div class='sectionTitle'>
       <h2>${state.chapter + 1}. ${c.title}</h2>
-      <span class='tag'>Mission</span>
-      <span class='tag'>Simulation</span>
-      <span class='tag'>Labs</span>
-      <span class='tag'>Journal</span>
+      <div>
+        <span class='tag'>Mission</span>
+        <span class='tag'>Simulation</span>
+        <span class='tag'>Labs</span>
+        <span class='tag'>Journal</span>
+      </div>
     </div>
     <p>${c.desc}</p>
     <h3>📘 Field Manual</h3>
@@ -437,8 +447,10 @@ function renderGame() {
     <div id='feedback' aria-live='polite'></div>
     <div id='labs'></div>
     <hr style='border-color:rgba(255,255,255,.08);margin:18px 0'>
-    <button class='btn' onclick='completeChapter()' type='button'>Mark Chapter Complete</button>
-    <button class='btn secondary' onclick='showJournal()' type='button'>Show Journal</button>
+    <div class='actionGroup'>
+      <button class='btn' onclick='completeChapter()' type='button'>Mark Chapter Complete</button>
+      <button class='btn secondary' onclick='showJournal()' type='button'>Show Journal</button>
+    </div>
     <div id='journalBox'></div>`;
   renderLabs();
 }

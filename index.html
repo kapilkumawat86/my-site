@@ -441,7 +441,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .cv-hero-right {
   display: flex;
+  flex-direction: column;
+  gap: 14px;
   justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .cv-portrait-card {
@@ -482,6 +485,113 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--ink-soft);
   font-size: 12px;
   font-weight: 700;
+}
+
+.cv-geo-card,
+.cv-ai-graphic {
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.cv-geo-card {
+  width: min(100%, 350px);
+  padding: 16px;
+}
+
+.cv-geo-head,
+.cv-ai-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: baseline;
+  margin-bottom: 14px;
+}
+
+.cv-geo-title,
+.cv-ai-title {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.cv-geo-note,
+.cv-ai-note {
+  color: var(--ink-soft);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.cv-geo-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--accent-text);
+}
+
+.cv-map-grid {
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+}
+
+.cv-map-route {
+  fill: none;
+  stroke: var(--accent-text);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 4 5;
+}
+
+.cv-map-node {
+  fill: var(--surface);
+  stroke: var(--accent-text);
+  stroke-width: 2;
+}
+
+.cv-map-node-home {
+  fill: var(--accent);
+  stroke: var(--ink);
+}
+
+.cv-map-label {
+  fill: var(--ink-muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.cv-geo-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.cv-geo-stat {
+  display: grid;
+  gap: 3px;
+  padding: 9px;
+  border: 1px solid var(--rule);
+  border-radius: 7px;
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.cv-geo-stat b {
+  color: var(--accent-text);
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.cv-geo-stat span {
+  color: var(--ink-soft);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-transform: uppercase;
 }
 
 .cv-metrics {
@@ -614,6 +724,98 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 16px;
   font-weight: 700;
   line-height: 1.35;
+}
+
+.cv-ai-graphic {
+  margin-top: 34px;
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.cv-ai-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.cv-ai-step {
+  position: relative;
+  min-height: 132px;
+  padding: 16px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.cv-ai-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -11px;
+  width: 11px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.7;
+}
+
+.cv-ai-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 14px;
+  border-radius: 7px;
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--accent-text);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.cv-ai-step-title {
+  display: block;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.cv-ai-step-copy {
+  display: block;
+  margin-top: 7px;
+  color: var(--ink-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.cv-ai-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.cv-ai-metric {
+  padding: 13px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.cv-ai-metric b {
+  display: block;
+  color: var(--accent-text);
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: clamp(23px, 2.4vw, 34px);
+  line-height: 1;
+}
+
+.cv-ai-metric span {
+  display: block;
+  margin-top: 7px;
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-transform: uppercase;
 }
 
 .cv-outcomes {
@@ -1057,6 +1259,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   .cv-hero-right {
     justify-content: flex-start;
+    align-items: flex-start;
   }
 
   .cv-metrics,
@@ -1064,6 +1267,15 @@ ul { margin: 0; padding: 0; list-style: none; }
   .cv-skills,
   .cv-edu-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cv-ai-flow,
+  .cv-ai-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cv-ai-step:nth-child(2)::after {
+    display: none;
   }
 
   .cv-role {
@@ -1118,8 +1330,18 @@ ul { margin: 0; padding: 0; list-style: none; }
   .cv-metrics,
   .cv-outcomes,
   .cv-principles,
+  .cv-ai-flow,
+  .cv-ai-metrics,
   .cv-skills,
   .cv-edu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-ai-step::after {
+    display: none;
+  }
+
+  .cv-geo-stats {
     grid-template-columns: 1fr;
   }
 
@@ -1235,6 +1457,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   }
   html:not(.theme-light) .cv-nav { background: rgba(15, 23, 42, 0.94); }
   html:not(.theme-light) .cv-portrait-card { background: rgba(30, 41, 59, 0.85); }
+  html:not(.theme-light) .cv-geo-card,
+  html:not(.theme-light) .cv-ai-graphic { background: rgba(30, 41, 59, 0.85); }
   html:not(.theme-light) .cv-contact { background: rgba(30, 41, 59, 0.6); }
   html:not(.theme-light) .cv-principle { background: rgba(30, 41, 59, 0.7); }
   html:not(.theme-light) .cv-footer-band { background: #080d1a; }
@@ -1256,6 +1480,8 @@ html.theme-dark {
 }
 html.theme-dark .cv-nav { background: rgba(15, 23, 42, 0.94); }
 html.theme-dark .cv-portrait-card { background: rgba(30, 41, 59, 0.85); }
+html.theme-dark .cv-geo-card,
+html.theme-dark .cv-ai-graphic { background: rgba(30, 41, 59, 0.85); }
 html.theme-dark .cv-contact { background: rgba(30, 41, 59, 0.6); }
 html.theme-dark .cv-principle { background: rgba(30, 41, 59, 0.7); }
 html.theme-dark .cv-footer-band { background: #080d1a; }
@@ -1628,6 +1854,37 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
               <span class="cv-portrait-co">@ Goldcast</span>
             </figcaption>
           </figure>
+          <aside class="cv-geo-card" aria-label="Global engineering leadership map">
+            <div class="cv-geo-head">
+              <span class="cv-geo-title">Global engineering leadership</span>
+              <span class="cv-geo-note">Remote org</span>
+            </div>
+            <svg class="cv-geo-map" viewBox="0 0 320 176" role="img" aria-label="Jaipur connected to teams in the United States, Canada, Brazil, Ireland, and Serbia">
+              <path class="cv-map-grid" d="M24 34H296M24 72H296M24 110H296M24 148H296M58 18V160M126 18V160M194 18V160M262 18V160" fill="none"/>
+              <path class="cv-map-route" d="M226 96C184 42 106 36 62 54"/>
+              <path class="cv-map-route" d="M226 96C170 54 88 70 54 83"/>
+              <path class="cv-map-route" d="M226 96C160 112 112 135 94 144"/>
+              <path class="cv-map-route" d="M226 96C210 54 179 44 163 42"/>
+              <path class="cv-map-route" d="M226 96C214 63 196 58 184 60"/>
+              <circle class="cv-map-node cv-map-node-home" cx="226" cy="96" r="7"/>
+              <circle class="cv-map-node" cx="62" cy="54" r="5"/>
+              <circle class="cv-map-node" cx="54" cy="83" r="5"/>
+              <circle class="cv-map-node" cx="94" cy="144" r="5"/>
+              <circle class="cv-map-node" cx="163" cy="42" r="5"/>
+              <circle class="cv-map-node" cx="184" cy="60" r="5"/>
+              <text class="cv-map-label" x="236" y="100">Jaipur</text>
+              <text class="cv-map-label" x="39" y="45">Canada</text>
+              <text class="cv-map-label" x="37" y="75">US</text>
+              <text class="cv-map-label" x="78" y="162">Brazil</text>
+              <text class="cv-map-label" x="143" y="32">Ireland</text>
+              <text class="cv-map-label" x="190" y="56">Serbia</text>
+            </svg>
+            <div class="cv-geo-stats">
+              <div class="cv-geo-stat"><b>30+</b><span>Engineers led</span></div>
+              <div class="cv-geo-stat"><b>5</b><span>Countries</span></div>
+              <div class="cv-geo-stat"><b>3</b><span>Teams built</span></div>
+            </div>
+          </aside>
         </div>
       </div>
 
@@ -2089,6 +2346,24 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
         </div>
         <div class="cv-about-body">
           <p>My approach: treat AI agents as junior engineers. Assign them scope, verify their output, build confidence incrementally, and measure the productivity delta — exactly as you would a new hire.</p>
+        </div>
+      </div>
+      <div class="cv-ai-graphic" aria-label="AI agents rebuild workflow">
+        <div class="cv-ai-head">
+          <span class="cv-ai-title">AI agents workflow: vendor outage to in-house rebuild</span>
+          <span class="cv-ai-note">Goldcast</span>
+        </div>
+        <div class="cv-ai-flow">
+          <div class="cv-ai-step"><span class="cv-ai-step-num">01</span><span class="cv-ai-step-title">Scope failure</span><span class="cv-ai-step-copy">Vendor outage created a 12-hour support gap and immediate product risk.</span></div>
+          <div class="cv-ai-step"><span class="cv-ai-step-num">02</span><span class="cv-ai-step-title">Assign agents</span><span class="cv-ai-step-copy">22 Claude agents split feature rebuild, tests, review, and documentation.</span></div>
+          <div class="cv-ai-step"><span class="cv-ai-step-num">03</span><span class="cv-ai-step-title">Verify output</span><span class="cv-ai-step-copy">Engineering review, test scaffolding, UX cleanup, and coverage gates.</span></div>
+          <div class="cv-ai-step"><span class="cv-ai-step-num">04</span><span class="cv-ai-step-title">Ship in-house</span><span class="cv-ai-step-copy">Improved UX, removed vendor dependency, and kept build cost controlled.</span></div>
+        </div>
+        <div class="cv-ai-metrics">
+          <div class="cv-ai-metric"><b>22</b><span>AI agents</span></div>
+          <div class="cv-ai-metric"><b>90%</b><span>Test coverage</span></div>
+          <div class="cv-ai-metric"><b>&lt;$200</b><span>Build cost</span></div>
+          <div class="cv-ai-metric"><b>12h</b><span>Vendor outage</span></div>
         </div>
       </div>
       <div class="cv-principles">

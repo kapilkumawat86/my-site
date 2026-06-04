@@ -19,8 +19,397 @@
   <meta name="twitter:title" content="Options Trader: Volatility Wars" />
   <meta name="twitter:description" content="Free offline PWA game to learn options trading — calls, puts, Greeks, Iron Condors, and more." />
   <style>
-    :root{--bg:#080d1c;--panel:#111a33;--panel2:#172341;--text:#edf4ff;--muted:#a9b8d8;--accent:#65f0c5;--blue:#7aa8ff;--good:#78ee9a;--warn:#ffd166;--danger:#ff6f91;--line:rgba(255,255,255,.12)}
-    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at top left,#243a80 0,#080d1c 42%,#060914 100%);color:var(--text);min-height:100vh}button,input,select,textarea{font:inherit}.wrap{max-width:1180px;margin:0 auto;padding:16px 16px 86px}.top{display:grid;grid-template-columns:1.4fr .6fr;gap:14px}.card{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 16px 40px rgba(0,0,0,.28);margin-bottom:14px}h1{font-size:34px;margin:0 0 8px}h2{font-size:26px;margin:0 0 10px}h3{margin:14px 0 8px}p{color:var(--muted);line-height:1.55}.pill{display:inline-block;margin:3px 5px 8px 0;padding:6px 10px;border-radius:999px;background:rgba(101,240,197,.14);color:var(--accent);font-size:12px;font-weight:800}.btn{border:0;border-radius:14px;padding:12px 15px;font-weight:900;cursor:pointer;background:var(--accent);color:#05251c;margin:5px;box-shadow:0 5px 16px rgba(0,0,0,.18)}.secondary{background:#263556;color:var(--text)}.danger{background:var(--danger);color:white}.warn{background:var(--warn);color:#2b2200}.good{background:var(--good);color:#06240e}.stat{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)}.bar{height:12px;background:#273353;border-radius:999px;overflow:hidden}.bar>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--blue));transition:.3s}.nav{display:flex;overflow:auto;gap:8px;padding:14px 0;position:sticky;top:0;z-index:5;background:linear-gradient(180deg,rgba(8,13,28,.98),rgba(8,13,28,.78));backdrop-filter:blur(8px)}.nav button{white-space:nowrap;background:#182542;color:#dbe6ff;border:1px solid var(--line);border-radius:999px;padding:9px 12px;font-size:12px;font-weight:800}.nav button.active{background:var(--accent);color:#06251c}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.choice,.box{border:1px solid var(--line);background:#131f3d;border-radius:18px;padding:15px;min-height:92px}.choice{cursor:pointer}.choice:hover{outline:2px solid rgba(101,240,197,.7)}.scenario{border-left:5px solid var(--accent);background:#101a34;border-radius:14px;padding:13px;margin:12px 0}.terminal{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#050915;border:1px solid #31406e;border-radius:16px;padding:14px;min-height:96px;color:#cfffee;overflow:auto}.result{margin-top:12px;border:1px solid var(--line);border-radius:16px;padding:14px;background:rgba(255,255,255,.06)}.mini{font-size:13px;color:#aab8d4}.inputRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.inputRow input,.inputRow select,textarea{background:#0b1328;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:10px;min-width:120px}textarea{width:100%;min-height:90px}.bottomBar{position:fixed;bottom:0;left:0;right:0;background:rgba(8,13,28,.94);border-top:1px solid var(--line);backdrop-filter:blur(10px);z-index:6}.bottomInner{max-width:1180px;margin:auto;padding:9px 16px;display:flex;justify-content:space-between;gap:8px;align-items:center}.offline{font-size:12px;color:var(--accent)}.tag{font-size:12px;border:1px solid #55709e;border-radius:8px;padding:3px 6px;color:#cfe0ff;display:inline-block;margin:2px}canvas{width:100%;height:240px;background:#071024;border:1px solid var(--line);border-radius:18px}@media(max-width:760px){.top{grid-template-columns:1fr}h1{font-size:28px}.wrap{padding:10px 10px 86px}.bottomInner{font-size:13px}.btn{padding:11px 12px}.card{padding:15px}}
+    :root {
+      --bg: #080d1c;
+      --panel: #111a33;
+      --panel-2: #172341;
+      --panel-soft: rgba(255, 255, 255, .055);
+      --text: #edf4ff;
+      --muted: #a9b8d8;
+      --accent: #65f0c5;
+      --blue: #7aa8ff;
+      --good: #78ee9a;
+      --warn: #ffd166;
+      --danger: #ff6f91;
+      --line: rgba(255, 255, 255, .13);
+      --line-strong: rgba(255, 255, 255, .22);
+      --shadow: 0 18px 48px rgba(0, 0, 0, .3);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 18% 0, rgba(122, 168, 255, .32), transparent 34rem),
+        radial-gradient(circle at 92% 12%, rgba(101, 240, 197, .13), transparent 28rem),
+        linear-gradient(135deg, #080d1c 0%, #0d1428 45%, #060914 100%);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: env(safe-area-inset-bottom);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button,
+    input,
+    select,
+    textarea { font: inherit; }
+
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid rgba(101, 240, 197, .48);
+      outline-offset: 2px;
+    }
+
+    .wrap {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: clamp(12px, 2.8vw, 24px) clamp(12px, 3vw, 22px) 104px;
+    }
+
+    .top {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr);
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .095), rgba(255, 255, 255, .04));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+      padding: clamp(16px, 2.4vw, 24px);
+    }
+
+    h1,
+    h2,
+    h3 { line-height: 1.08; }
+
+    h1 {
+      font-size: clamp(30px, 4vw, 48px);
+      margin: 8px 0 10px;
+      max-width: 760px;
+    }
+
+    h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      margin: 0;
+    }
+
+    h3 {
+      font-size: clamp(17px, 2vw, 21px);
+      margin: 22px 0 10px;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      margin: 0 6px 8px 0;
+      min-height: 30px;
+      padding: 7px 10px;
+      border: 1px solid rgba(101, 240, 197, .24);
+      border-radius: 999px;
+      background: rgba(101, 240, 197, .12);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .heroActions,
+    .actionGroup {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      min-width: 44px;
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 15px;
+      background: var(--accent);
+      color: #05251c;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1.1;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .2);
+      transition: transform .16s ease, filter .16s ease, border-color .16s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.04); }
+    .secondary { background: #263556; color: var(--text); }
+    .danger { background: var(--danger); color: white; }
+    .warn { background: var(--warn); color: #2b2200; }
+    .good { background: var(--good); color: #06240e; }
+
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .stat span { color: var(--muted); }
+    .stat b { text-align: right; }
+
+    .bar {
+      height: 12px;
+      background: #273353;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar > span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--blue));
+      transition: width .3s ease;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      margin: 0 -4px 14px;
+      padding: 12px 4px;
+      background: linear-gradient(180deg, rgba(8, 13, 28, .98), rgba(8, 13, 28, .82));
+      backdrop-filter: blur(12px);
+      scrollbar-width: thin;
+    }
+
+    .nav button {
+      flex: 0 0 auto;
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #182542;
+      color: #dbe6ff;
+      padding: 9px 13px;
+      font-size: 12px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .nav button.active {
+      background: var(--accent);
+      color: #06251c;
+      border-color: transparent;
+    }
+
+    .sectionTitle {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px 16px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .sectionTitle > div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 12px;
+    }
+
+    .choice,
+    .box {
+      border: 1px solid var(--line);
+      background: rgba(19, 31, 61, .92);
+      border-radius: 14px;
+      min-height: 96px;
+      padding: 15px;
+    }
+
+    .choice { cursor: pointer; }
+    .choice:hover { outline: 2px solid rgba(101, 240, 197, .7); }
+
+    .box b {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .scenario {
+      border-left: 5px solid var(--accent);
+      background: #101a34;
+      border-radius: 12px;
+      margin: 12px 0;
+      padding: 14px;
+    }
+
+    .terminal {
+      white-space: pre-wrap;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      background: #050915;
+      border: 1px solid #31406e;
+      border-radius: 14px;
+      color: #cfffee;
+      min-height: 96px;
+      overflow: auto;
+      padding: 14px;
+      line-height: 1.5;
+    }
+
+    .result {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      background: var(--panel-soft);
+    }
+
+    .mini {
+      font-size: 13px;
+      color: #aab8d4;
+    }
+
+    .inputRow {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .inputRow input,
+    .inputRow select,
+    textarea,
+    select {
+      width: 100%;
+      min-height: 44px;
+      background: #0b1328;
+      color: var(--text);
+      border: 1px solid var(--line-strong);
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .bottomBar {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 6;
+      background: rgba(8, 13, 28, .94);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .bottomInner {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      width: min(1180px, 100%);
+      margin: auto;
+      padding: 10px clamp(12px, 3vw, 22px);
+    }
+
+    .offline {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      border: 1px solid #55709e;
+      border-radius: 8px;
+      color: #cfe0ff;
+      font-size: 12px;
+      font-weight: 750;
+      padding: 4px 7px;
+    }
+
+    canvas {
+      width: 100%;
+      height: 260px;
+      background: #071024;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      display: block;
+    }
+
+    @media (max-width: 860px) {
+      .top { grid-template-columns: 1fr; }
+
+      .top .card:first-child {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 10px 10px 132px; }
+      .card { border-radius: 14px; }
+      .pill { font-size: 11px; }
+
+      .heroActions,
+      .actionGroup,
+      .bottomInner > span:last-child {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+      }
+
+      .heroActions .danger { grid-column: 1 / -1; }
+      .actionGroup .btn:only-child { grid-column: 1 / -1; }
+      .btn { width: 100%; padding-inline: 12px; }
+
+      .nav {
+        top: 0;
+        margin-inline: -10px;
+        padding-inline: 10px;
+      }
+
+      .inputRow { grid-template-columns: 1fr; }
+
+      .bottomInner {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .offline { text-align: center; }
+      canvas { height: 220px; }
+    }
   </style>
 </head>
 <body>
@@ -30,9 +419,11 @@
       <span class="pill">Offline PWA</span><span class="pill">6-hour guided game</span><span class="pill">Options + Greeks + Strategies</span>
       <h1>🎮 Options Trader: Volatility Wars</h1>
       <p>A longer fun-and-learn game for Calls, Puts, ATM/ITM/OTM, Option Chain, IV, Greeks, Payoff Graphs, Delta Neutral, Theta Harvesting, Gamma Risk, Vega, Calendars, Diagonals, Iron Condors, adjustments, and risk rules.</p>
-      <button class="btn" id="startBtn" type="button">Start / Continue Game</button>
-      <button class="btn secondary" id="tourBtn" type="button">Open Chapter Map</button>
-      <button class="btn danger" id="resetBtn" type="button">Reset</button>
+      <div class="heroActions">
+        <button class="btn" id="startBtn" type="button">Start / Continue Game</button>
+        <button class="btn secondary" id="tourBtn" type="button">Open Chapter Map</button>
+        <button class="btn danger" id="resetBtn" type="button">Reset</button>
+      </div>
     </div>
     <div class="card">
       <h3>Player Stats</h3>
@@ -46,7 +437,7 @@
   <div class="nav" id="nav"></div>
   <main class="card" id="game"><h2>Loading game...</h2></main>
 </div>
-<div class="bottomBar"><div class="bottomInner"><span class="offline" id="offlineStatus">Checking offline support…</span><span><button class="btn secondary" id="prevBtn" type="button">Prev</button><button class="btn" id="nextBtn" type="button">Next</button></span></div></div>
+<div class="bottomBar"><div class="bottomInner"><span class="offline" id="offlineStatus">Checking offline support...</span><span><button class="btn secondary" id="prevBtn" type="button">Prev</button><button class="btn" id="nextBtn" type="button">Next</button></span></div></div>
 <script src="game.js"></script>
 </body>
 </html>
