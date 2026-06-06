@@ -726,6 +726,93 @@ ul { margin: 0; padding: 0; list-style: none; }
   line-height: 1.35;
 }
 
+.cv-recommendation {
+  position: relative;
+  margin: 34px 0 0;
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.cv-recommendation::before {
+  content: "\201C";
+  position: absolute;
+  top: -20px;
+  right: 24px;
+  color: rgba(16, 185, 129, 0.12);
+  font-family: Georgia, serif;
+  font-size: 160px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.cv-recommendation-label {
+  position: relative;
+  color: var(--accent-text);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cv-recommendation-copy {
+  position: relative;
+  max-width: 920px;
+  margin-top: 20px;
+}
+
+.cv-recommendation-copy p {
+  margin: 0 0 16px;
+  color: var(--ink-muted);
+  font-size: 15px;
+  line-height: 1.68;
+}
+
+.cv-recommendation-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.cv-recommendation-byline {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 14px;
+  margin-top: 24px;
+  font-style: normal;
+}
+
+.cv-recommendation-name {
+  color: var(--ink);
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.cv-recommendation-role {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.cv-recommendation-link {
+  color: var(--accent-text);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.cv-recommendation-link:hover,
+.cv-recommendation-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  outline: none;
+}
+
 .cv-ai-graphic {
   margin-top: 34px;
   padding: clamp(18px, 3vw, 28px);
@@ -1541,7 +1628,8 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
   .cv-skill-group,
   .cv-edu-col,
   .cv-metric,
-  .cv-principle {
+  .cv-principle,
+  .cv-recommendation {
     break-inside: avoid;
     box-shadow: none;
   }
@@ -1992,6 +2080,21 @@ html.theme-dark .cv-footer-band { background: #080d1a; }
           <span class="cv-principle-k">Hire for slope, coach for intercept</span><span class="cv-principle-v">Current skill level tells you where someone is. Learning velocity tells you where they will go. Bet on trajectory, not starting point.</span>
         </div>
       </div>
+      <blockquote class="cv-recommendation">
+        <div class="cv-recommendation-label">Leadership recommendation</div>
+        <div class="cv-recommendation-copy">
+          <p>I've had the opportunity to work closely with Kapil through periods of growth, customer challenges, organizational change, and engineering transformation.</p>
+          <p>What stands out most about Kapil is his ability to operate across multiple dimensions of leadership. He brings strong technical depth, but he also understands that successful engineering organizations are built on trust, accountability, customer focus, and developing people.</p>
+          <p>At Goldcast, Kapil has been a trusted leader for both the engineering organization and the broader business. He has repeatedly stepped into difficult customer situations, helped retain critical accounts, developed engineering managers, and driven improvements that strengthened both our product and our engineering culture.</p>
+          <p>One of Kapil's greatest strengths is his ability to build leaders. He actively invests in the growth of others, creates opportunities for people to take ownership, and helps teams become more effective over time.</p>
+          <p>Kapil is the kind of leader who combines technical credibility with sound judgment and a genuine commitment to people. Any organization looking to scale engineering while maintaining a strong culture would benefit from having him on their leadership team.</p>
+        </div>
+        <footer class="cv-recommendation-byline">
+          <span class="cv-recommendation-name">Palash Soni</span>
+          <span class="cv-recommendation-role">Co-Founder &amp; CEO at Goldcast · Harvard Business School</span>
+          <a class="cv-recommendation-link" href="https://www.linkedin.com/in/palashsoni/?skipRedirect=true" target="_blank" rel="noreferrer">View on LinkedIn</a>
+        </footer>
+      </blockquote>
     </section>
 
     <section id="impact" class="cv-section">
